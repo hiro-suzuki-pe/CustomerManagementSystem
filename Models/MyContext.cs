@@ -6,10 +6,9 @@ namespace CustomerManagementSystem.Models
     {
         public MyContext(DbContextOptions<MyContext> options): base(options) { }
 
-//        public DbSet <Book> Book { get; set; }
         public DbSet <tbl_customer> Customer { get; set; }
-//        public DbSet <tbl_company> Company { get; set; }   
-//        public DbSet <tbl_action> Action { get; set; }
-//        public DbSet <tbl_staff> Staff { get; set; }
+        public DbSet <tbl_company> Company { get; set; }   
+        public DbSet <tbl_action> Action { get; set; }
+        public DbSet <tbl_staff> Staff { get; set; }
     }
 }

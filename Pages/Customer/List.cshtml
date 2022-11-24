@@ -1,0 +1,55 @@
+﻿@page
+@model CustomerManagementSystem.Pages.Customer.ListModel
+@{
+    ViewData["Title"] = "顧客情報";
+}
+
+<h2>List</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>顧客名</th>
+            <th>顧客名カナ</th>
+            <th>会社ID</th>
+            <th>部署</th>
+            <th>役職</th>
+            <th>郵便番号</th>
+            <th>アドレス</th>
+            <th>TEL</th>
+            <th>スタッフID</th>
+            <th>最初の日付</th>
+            <th>メモ</th>
+            <th>入力日</th>
+            <th>入力したスタッフ名</th>
+            <th>更新日</th>
+            <th>更新したスタッフ名</th>
+            <th>削除フラグ</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var item in Model.Customer)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.customer_name</td>
+                <td>@item.customer_kana</td>
+                <td>@item.companyId</td>
+                <td>@item.section</td>
+                <td>@item.post</td>
+                <td>@item.zipcode</td>
+                <td>@item.address</td>
+                <td>@item.tel</td>
+                <td>@item.staffId</td>
+                <td>@item.first_action_date</td>
+                <td>@item.memo</td>
+                <td>@item.input_date</td>
+                <td>@item.input_staff_name</td>
+                <td>@item.update_date</td>
+                <td>@item.update_staff_name</td>
+                <td>@item.delete_flag</td>
+            </tr>
+        }
+    </tbody>
+</table>

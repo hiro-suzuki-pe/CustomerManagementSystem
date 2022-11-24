@@ -7,6 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20221123210234_Initial.cs" />
+    <Compile Remove="Migrations\20221123210234_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20221123210633_CustomerManagement.cs" />
+    <Compile Remove="Migrations\20221123210633_CustomerManagement.Designer.cs" />
+    <Compile Remove="Migrations\20221124040020_book.cs" />
+    <Compile Remove="Migrations\20221124040020_book.Designer.cs" />
+    <Compile Remove="Migrations\20221124043332_Initial.cs" />
+    <Compile Remove="Migrations\20221124043332_Initial.Designer.cs" />
+    <Compile Remove="Migrations\MyContextModelSnapshot.cs" />
+    <Compile Remove="Models\Book.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -16,6 +29,13 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+    <Folder Include="Pages\Action\" />
+    <Folder Include="Pages\Company\" />
+    <Folder Include="Pages\Staff\" />
   </ItemGroup>
 
 </Project>
