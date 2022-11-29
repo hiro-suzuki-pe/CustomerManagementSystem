@@ -1,0 +1,85 @@
+﻿@page
+@model CustomerManagementSystem.Pages.Test.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Test</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Test.Id" />
+            <div class="form-group">
+                <label asp-for="Test.customer_name" class="control-label"></label>
+                <input asp-for="Test.customer_name" class="form-control" />
+                <span asp-validation-for="Test.customer_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Test.customer_kana" class="control-label"></label>
+                <input asp-for="Test.customer_kana" class="form-control" />
+                <span asp-validation-for="Test.customer_kana" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Test.company_name" class="control-label"></label>
+                <input asp-for="Test.company_name" class="form-control" />
+                <span asp-validation-for="Test.company_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Test.section" class="control-label"></label>
+                <input asp-for="Test.section" class="form-control" />
+                <span asp-validation-for="Test.section" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Test.post" class="control-label"></label>
+                <input asp-for="Test.post" class="form-control" />
+                <span asp-validation-for="Test.post" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Test.zipcode" class="control-label"></label>
+                <input asp-for="Test.zipcode" class="form-control" />
+                <span asp-validation-for="Test.zipcode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Test.address" class="control-label"></label>
+                <input asp-for="Test.address" class="form-control" />
+                <span asp-validation-for="Test.address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Test.tel" class="control-label"></label>
+                <input asp-for="Test.tel" class="form-control" />
+                <span asp-validation-for="Test.tel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Test.staff_name" class="control-label"></label>
+                <input asp-for="Test.staff_name" class="form-control" />
+                <span asp-validation-for="Test.staff_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Test.first_action_date" class="control-label"></label>
+                <input asp-for="Test.first_action_date" class="form-control" />
+                <span asp-validation-for="Test.first_action_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Test.memo" class="control-label"></label>
+                <input asp-for="Test.memo" class="form-control" />
+                <span asp-validation-for="Test.memo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,126 @@
+﻿@page
+@model CustomerManagementSystem.Pages.Customer.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_customer[0].customer_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_customer[0].customer_kana)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_customer[0].companyId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_customer[0].section)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_customer[0].post)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_customer[0].zipcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_customer[0].address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_customer[0].tel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_customer[0].staffId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_customer[0].first_action_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_customer[0].memo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_customer[0].input_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_customer[0].input_staff_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_customer[0].update_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_customer[0].update_staff_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_customer[0].delete_flag)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.tbl_customer) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_kana)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.companyId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.section)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.post)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.zipcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.staffId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.first_action_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.memo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.input_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.input_staff_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.update_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.update_staff_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.delete_flag)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

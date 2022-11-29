@@ -1,0 +1,109 @@
+﻿@page
+@model CustomerManagementSystem.Pages.Customer.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>tbl_customer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="tbl_customer.customer_name" class="control-label"></label>
+                <input asp-for="tbl_customer.customer_name" class="form-control" />
+                <span asp-validation-for="tbl_customer.customer_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tbl_customer.customer_kana" class="control-label"></label>
+                <input asp-for="tbl_customer.customer_kana" class="form-control" />
+                <span asp-validation-for="tbl_customer.customer_kana" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tbl_customer.companyId" class="control-label"></label>
+                <input asp-for="tbl_customer.companyId" class="form-control" />
+                <span asp-validation-for="tbl_customer.companyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tbl_customer.section" class="control-label"></label>
+                <input asp-for="tbl_customer.section" class="form-control" />
+                <span asp-validation-for="tbl_customer.section" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tbl_customer.post" class="control-label"></label>
+                <input asp-for="tbl_customer.post" class="form-control" />
+                <span asp-validation-for="tbl_customer.post" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tbl_customer.zipcode" class="control-label"></label>
+                <input asp-for="tbl_customer.zipcode" class="form-control" />
+                <span asp-validation-for="tbl_customer.zipcode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tbl_customer.address" class="control-label"></label>
+                <input asp-for="tbl_customer.address" class="form-control" />
+                <span asp-validation-for="tbl_customer.address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tbl_customer.tel" class="control-label"></label>
+                <input asp-for="tbl_customer.tel" class="form-control" />
+                <span asp-validation-for="tbl_customer.tel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tbl_customer.staffId" class="control-label"></label>
+                <input asp-for="tbl_customer.staffId" class="form-control" />
+                <span asp-validation-for="tbl_customer.staffId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tbl_customer.first_action_date" class="control-label"></label>
+                <input asp-for="tbl_customer.first_action_date" class="form-control" />
+                <span asp-validation-for="tbl_customer.first_action_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tbl_customer.memo" class="control-label"></label>
+                <input asp-for="tbl_customer.memo" class="form-control" />
+                <span asp-validation-for="tbl_customer.memo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tbl_customer.input_date" class="control-label"></label>
+                <input asp-for="tbl_customer.input_date" class="form-control" />
+                <span asp-validation-for="tbl_customer.input_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tbl_customer.input_staff_name" class="control-label"></label>
+                <input asp-for="tbl_customer.input_staff_name" class="form-control" />
+                <span asp-validation-for="tbl_customer.input_staff_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tbl_customer.update_date" class="control-label"></label>
+                <input asp-for="tbl_customer.update_date" class="form-control" />
+                <span asp-validation-for="tbl_customer.update_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tbl_customer.update_staff_name" class="control-label"></label>
+                <input asp-for="tbl_customer.update_staff_name" class="form-control" />
+                <span asp-validation-for="tbl_customer.update_staff_name" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="tbl_customer.delete_flag" /> @Html.DisplayNameFor(model => model.tbl_customer.delete_flag)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
