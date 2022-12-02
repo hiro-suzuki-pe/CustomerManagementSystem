@@ -3,27 +3,30 @@
 @{
     ViewData["Title"] = "ホームページ";
 }
-
+<div>
+    <img src="Nemophila.jpg" alt="[loading failed]" />
+</div>
 <div class="text-center">
+   
     <h1 class="display-4">顧客対応管理システム</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 
-    <p>
-        <a asp-page="/Customer/Index">顧客一覧</a>
+    <p style ="text-align:left">
+        <a  asp-page="/Customer/Index">顧客一覧(左寄せ)</a>
     </p>
-    <p>
-    <a asp-page="/Company/Index">会社マスター管理</a>
+    <p style="text-align:left">
+        <a asp-page="/Company/Index">会社マスター管理</a>
     </p>
-    <p>
+    <p style="text-align:left">
         <a asp-page="./">営業報告一覧</a>
     </p>
-    <p>
+    <p style="text-align:left">
         <a asp-page="./">顧客データのエクスポート</a>
     </p>
-    <p>
+    <p style="text-align:left">
         <a asp-page="./">営業担当者の置換</a>
     </p>
-    <p>
+    <p style="text-align:left">
         <a asp-page="./">スタッフマスター管理</a>
     </p>
 </div>
