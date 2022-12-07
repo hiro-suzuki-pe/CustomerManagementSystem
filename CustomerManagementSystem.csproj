@@ -17,6 +17,15 @@
     <Compile Remove="Migrations\20221124043332_Initial.Designer.cs" />
     <Compile Remove="Migrations\MyContextModelSnapshot.cs" />
     <Compile Remove="Models\Book.cs" />
+    <Compile Remove="Pages\Index - コピー.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Pages\Index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Pages\Index.html" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +45,7 @@
     <Folder Include="Pages\Action\" />
     <Folder Include="Pages\Company\" />
     <Folder Include="Pages\Staff\" />
+    <Folder Include="Pages\CustomerView\" />
   </ItemGroup>
 
 </Project>
