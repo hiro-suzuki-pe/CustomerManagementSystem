@@ -6,6 +6,7 @@ using static System.Collections.Specialized.BitVector32;
 using System.ComponentModel.Design;
 using System.Net;
 using System.Reflection.Emit;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CustomerManagementSystem.Models;
 
@@ -286,138 +287,142 @@ public static class SeedData
                     });
 }
 
-            // Seed data of Company
-            if (!context.Company.Any())
+            // Seed data of Staff
+            if (!context.Staff.Any())
             {
-                context.Company.AddRange(
-                    new tbl_company
+                context.Staff.AddRange(
+                    new tbl_staff
                     {
-                        company_name = "医療法人徳真会　真岡病院 ",
-                        company_kana = "モウカビョウイン",
-                        delete_flag = false
+                        staff_name = "桐生祥秀", userId = "1019", password = "pass1019", admin_flag = false, delete_flag = false
                     },
-                    new tbl_company
+                    new tbl_staff
                     {
-                        company_name = "旭化成ファーマ株式会社 ",
-                        company_kana = "アサヒカセイファーマ",
-                        delete_flag = false
+                        staff_name = "足立美由紀", userId = "1074", password = "pass1074", admin_flag = false, delete_flag = false
                     },
-                    new tbl_company
+                    new tbl_staff
                     {
-                        company_name = "アステラス製薬株式会社 ",
-                        company_kana = "アステラスセイヤク",
-                        delete_flag = false
+                        staff_name = "松本尚子", userId = "1053", password = "pass1053", admin_flag = false, delete_flag = false
                     },
-                    new tbl_company
+                    new tbl_staff
                     {
-                        company_name = "アルフレッサ ",
-                        company_kana = "アルフレッサ ",
-                        delete_flag = false
+                        staff_name = "柳田大輝", userId = "1103", password = "pass1103", admin_flag = false, delete_flag = false
                     },
-                    new tbl_company
+                    new tbl_staff
                     {
-                        company_name = "エーザイ株式会社 ",
-                        company_kana = "エーザイ",
-                        delete_flag = false
+                         staff_name = "山田真理子", userId = "1042", password = "pass1042", admin_flag = false, delete_flag = false
+                   },
+                    new tbl_staff
+                    {
+                        staff_name = "小嶋しげみ", userId = "1052", password = "pass1052", admin_flag = false, delete_flag = false
                     },
-                    new tbl_company
+                    new tbl_staff
                     {
-                        company_name = "大塚製薬株式会社 ",
-                        company_kana = "オオツカセイヤク",
-                        delete_flag = false
+                        staff_name = "赤渕小百合", userId = "1066", password = "pass1066", admin_flag = false, delete_flag = false
                     },
-                    new tbl_company
+                    new tbl_staff
                     {
-                        company_name = "小野薬品工業株式会社 ",
-                        company_kana = "オノヤクヒンコウギョウ",
-                        delete_flag = false
+                        staff_name = "宮本大輔", userId = "1017", password = "pass1017", admin_flag = false, delete_flag = false
                     },
-                    new tbl_company
+                    new tbl_staff
                     {
-                        company_name = "キッセイ薬品工業株式会社 ",
-                        company_kana = "キッセイヤクヒンコウギョウ",
-                        delete_flag = false
+                        staff_name = "大瀬戸一馬", userId = "1076", password = "pass1076", admin_flag = false, delete_flag = false
                     },
-                    new tbl_company
+                    new tbl_staff
                     {
-                        company_name = "協和キリン株式会社 ",
-                        company_kana = "キョウワキリン",
-                        delete_flag = false
-                    },
-                    new tbl_company
-                    {
-                        company_name = "興和株式会社 ",
-                        company_kana = "コウワ",
-                        delete_flag = false
+                        staff_name = "米田亜紀子", userId = "1098", password = "pass1098", admin_flag = false, delete_flag = false
                     });
             }
 
-            // Seed data of Company
-            if (!context.Company.Any())
+            // Seed data of Action
+            if (!context.Action.Any())
             {
-                context.Company.AddRange(
-                    new tbl_company
+                context.Action.AddRange(
+                    new tbl_action
                     {
-                        company_name = "医療法人徳真会　真岡病院 ",
-                        company_kana = "モウカビョウイン",
-                        delete_flag = false
+                        customerId = 1,
+                        action_date = DateTime.Parse("2022/7/30"),
+                        action_content = "来店",
+                        action_staffId = 4
                     },
-                    new tbl_company
+                    new tbl_action
                     {
-                        company_name = "旭化成ファーマ株式会社 ",
-                        company_kana = "アサヒカセイファーマ",
-                        delete_flag = false
+                        customerId = 7,
+                        action_date = DateTime.Parse("2022/3/19"),
+                        action_content = "電話受け",
+                        action_staffId = 8
                     },
-                    new tbl_company
+                    new tbl_action
                     {
-                        company_name = "アステラス製薬株式会社 ",
-                        company_kana = "アステラスセイヤク",
-                        delete_flag = false
+                        customerId = 9,
+                        action_date = DateTime.Parse("2022/6/3"),
+                        action_content = "来店",
+                        action_staffId = 1
                     },
-                    new tbl_company
+                    new tbl_action
                     {
-                        company_name = "アルフレッサ ",
-                        company_kana = "アルフレッサ ",
-                        delete_flag = false
+                        customerId = 9,
+                        action_date = DateTime.Parse("2022/2/9"),
+                        action_content = "来店",
+                        action_staffId = 6
                     },
-                    new tbl_company
+                    new tbl_action
                     {
-                        company_name = "エーザイ株式会社 ",
-                        company_kana = "エーザイ",
-                        delete_flag = false
+                        customerId = 2,
+                        action_date = DateTime.Parse("2022/1/2"),
+                        action_content = "訪問",
+                        action_staffId = 4
                     },
-                    new tbl_company
+                    new tbl_action
                     {
-                        company_name = "大塚製薬株式会社 ",
-                        company_kana = "オオツカセイヤク",
-                        delete_flag = false
+                        customerId = 7,
+                        action_date = DateTime.Parse("2022/1/21"),
+                        action_content = "電話受け",
+                        action_staffId = 4
                     },
-                    new tbl_company
+                    new tbl_action
                     {
-                        company_name = "小野薬品工業株式会社 ",
-                        company_kana = "オノヤクヒンコウギョウ",
-                        delete_flag = false
+                        customerId = 4,
+                        action_date = DateTime.Parse("2022/6/22"),
+                        action_content = "訪問",
+                        action_staffId = 6
                     },
-                    new tbl_company
+                    new tbl_action
                     {
-                        company_name = "キッセイ薬品工業株式会社 ",
-                        company_kana = "キッセイヤクヒンコウギョウ",
-                        delete_flag = false
+                        customerId = 2,
+                        action_date = DateTime.Parse("2022/7/11"),
+                        action_content = "電話受け",
+                        action_staffId = 6
                     },
-                    new tbl_company
+                    new tbl_action
                     {
-                        company_name = "協和キリン株式会社 ",
-                        company_kana = "キョウワキリン",
-                        delete_flag = false
+                        customerId = 6,
+                        action_date = DateTime.Parse("2022/2/28"),
+                        action_content = "訪問",
+                        action_staffId = 5
                     },
-                    new tbl_company
+                    new tbl_action
                     {
-                        company_name = "興和株式会社 ",
-                        company_kana = "コウワ",
-                        delete_flag = false
-                    });
+                        customerId = 1,
+                        action_date = DateTime.Parse("2022/4/7"),
+                        action_content = "来店",
+                        action_staffId = 9
+                    },
+                    new tbl_action
+                    {
+                        customerId = 3,
+                        action_date = DateTime.Parse("2022/5/15"),
+                        action_content = "電話受け",
+                        action_staffId = 1
+                    },
+                    new tbl_action
+                    {
+                        customerId = 4,
+                        action_date = DateTime.Parse("2022/4/26"),
+                        action_content = "訪問",
+                        action_staffId = 7
+                    }
+                );
             }
-
             context.SaveChanges();
         }
     }
