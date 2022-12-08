@@ -1,0 +1,67 @@
+﻿@page
+@model CustomerManagementSystem.Pages.CustomerView.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>CustomerView</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CustomerView.Id" />
+            <div class="form-group">
+                <label asp-for="CustomerView.customer_name" class="control-label"></label>
+                <input asp-for="CustomerView.customer_name" class="form-control" />
+                <span asp-validation-for="CustomerView.customer_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerView.customer_kana" class="control-label"></label>
+                <input asp-for="CustomerView.customer_kana" class="form-control" />
+                <span asp-validation-for="CustomerView.customer_kana" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerView.company_name" class="control-label"></label>
+                <input asp-for="CustomerView.company_name" class="form-control" />
+                <span asp-validation-for="CustomerView.company_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerView.section" class="control-label"></label>
+                <input asp-for="CustomerView.section" class="form-control" />
+                <span asp-validation-for="CustomerView.section" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerView.post" class="control-label"></label>
+                <input asp-for="CustomerView.post" class="form-control" />
+                <span asp-validation-for="CustomerView.post" class="text-danger"></span>
+            </div>
+            <!--
+                <div class="form-group">
+                    <label asp-for="CustomerView.tel" class="control-label"></label>
+                    <input asp-for="CustomerView.tel" class="form-control" />
+                    <span asp-validation-for="CustomerView.tel" class="text-danger"></span>
+                </div>
+            -->
+            <div class="form-group">
+                <label asp-for="CustomerView.staff_name" class="control-label"></label>
+                <input asp-for="CustomerView.staff_name" class="form-control" />
+                <span asp-validation-for="CustomerView.staff_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

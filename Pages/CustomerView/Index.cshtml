@@ -1,0 +1,58 @@
+﻿@page
+@model CustomerManagementSystem.Pages.CustomerView.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th> 顧客ID</th>
+            <th> 顧客名</th>
+            <th> 顧客名カナ </th>
+            <th> 会社名 </th>
+            <th> 部署名  </th>
+            <th> 役職  </th>
+            <th> 営業担当者 </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CustomerView) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_kana)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.company_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.section)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.post)
+            </td>
+
+             <td>
+                @Html.DisplayFor(modelItem => item.staff_name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
