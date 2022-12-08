@@ -13,6 +13,30 @@ html {
   min-height: 100%;
 }
 
+div.container {
+    background-color: lightcyan;
+}
+
+header {
+    background-color: lightgray;
+    height: 100px;
+}
+
+footer {
+    background-color: lightblue
+}
 body {
   margin-bottom: 60px;
+  background-color:aquamarine
 }
+
+article {
+    background-color: lightpink;
+    width: 620px;
+    float: left; /*←aside（サイドバー）はfloat:rightで右寄せに。*/
+}
+aside {
+    background-color: lightyellow;
+    float: right;  /*←aside（サイドバー）はfloat:rightで右寄せに。*/
+}
+
