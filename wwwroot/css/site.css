@@ -40,3 +40,20 @@ aside {
     float: right;  /*←aside（サイドバー）はfloat:rightで右寄せに。*/
 }
 
+table 
+{
+    background-color: palegreen;
+}
+
+table td {
+    background-color: red;
+}
+
+table tr:nth-child(odd) td {
+    background-color: lightblue;
+}
+
+table tr:nth-child(even) td {
+    background-color: lightyellow;
+}
+
