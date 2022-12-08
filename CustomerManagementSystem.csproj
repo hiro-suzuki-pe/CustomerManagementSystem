@@ -44,7 +44,6 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="Pages\Company\" />
-    <Folder Include="Pages\CustomerView\" />
     <Folder Include="Pages\images\" />
   </ItemGroup>
 

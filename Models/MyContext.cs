@@ -11,7 +11,6 @@ namespace CustomerManagementSystem.Models
         public DbSet <tbl_company> Company { get; set; }   
         public DbSet <tbl_action> Action { get; set; }
         public DbSet <tbl_staff> Staff { get; set; }
-//        public DbSet<CustomerManagementSystem.Models.Testx> Test { get; set; }
-        public DbSet<Testx> Test { get; set; }
+        public DbSet<CustomerManagementSystem.Models.vw_customer> CustomerView { get; set; }
     }
 }
