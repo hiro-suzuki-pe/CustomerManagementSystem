@@ -8,13 +8,41 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    
 </p>
+
+<table class="filter_condition">
+    <tr>
+        <td>顧客一覧</td>
+    </tr>
+    <tr>
+        <td>検索条件</td>
+        <td>顧客名</td>
+        <td>
+            <input type="text" CssClass="imeOn" name="CustomerNameTextBox" placeholder="顧客名" />
+        </td>
+        <td>会社名</td>
+        <td>
+            <input type="text" CssClass="imeOn" name="CompanyNameTextBox" placeholder="会社名" />
+        </td>
+        <td><input type="checkbox" name="MyCustomerCheckBox"/> type自分の顧客のみ</td>
+        <td>
+            <input type="button" name="FilterButton" value="フィルター実行" width="110px"/>
+        </td>
+        <td>
+            <a asp-page="Create">新規追加</a>
+        </td>
+    </tr>
+    <tr height="14px">
+        <td></td>
+    </tr>
+</table>
+
 <table class="table">
     <thead>
         <tr>
             <th> 顧客ID</th>
-            <th> 顧客名</th>
+            <th > 顧客名</th>
             <th> 顧客名カナ </th>
             <th> 会社名 </th>
             <th> 部署名  </th>
@@ -29,7 +57,7 @@
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.customer_name)
+                    <a asp-page="./Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.customer_name)</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.customer_kana)
@@ -43,17 +71,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.post)
             </td>
-
-             <td>
+            <td>
                 @Html.DisplayFor(modelItem => item.staff_name)
             </td>
-            <!--
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-                -->
         </tr>
 }
     </tbody>

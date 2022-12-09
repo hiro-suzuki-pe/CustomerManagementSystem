@@ -1,0 +1,17 @@
+﻿imeOn {
+    ime-mode: active;
+}
+
+imeOff {
+    ime-mode: disable;
+}
+
+
+body {
+    font-size: 12px;
+}
+
+table filter_condition {
+    
+    background-color: yellow;
+}

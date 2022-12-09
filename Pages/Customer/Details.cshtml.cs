@@ -18,7 +18,7 @@ namespace CustomerManagementSystem.Pages.Customer
             _context = context;
         }
 
-      public tbl_customer tbl_customer { get; set; }
+        public tbl_customer tbl_customer { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
