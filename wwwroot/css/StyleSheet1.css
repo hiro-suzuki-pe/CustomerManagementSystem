@@ -1,4 +1,6 @@
-﻿imeOn {
+﻿@charset "UTF-8";
+
+imeOn {
     ime-mode: active;
 }
 
@@ -12,21 +14,46 @@ body {
     background-color: pink;
 }
 
-table filter_condition {
-    border: 1px;
+table, filter_condition {
+    color: tan;
+    border:solid 1px;
     background-color: yellow;
 }
 
-table filter_condition.tr {
-    border: 1px;
-    background-color: yellow;
-}
 
-table details_info {
+table.details_info {
     background-color: lightyellow;
+    border-color: violet;
+    color: purple;
+    border-style: double;
+
 }
-table details_info.tr {
-    background-color: palegreen;
-    border:2px;
+table.details_info tr {
+    background-color: red;
+    line-height:20px;
+     border-color: violet;
+     border: 1px;
+         
 }
 
+h1 {
+    color: #0bd;
+    font-size: 48px;
+}
+
+
+h2 {
+    color: #066;
+}
+
+p {
+    font-size: 20pt;
+    color: red;
+}
+
+body {
+    background-color: #f5f2e5;
+    background-image: url(images/bg.png);
+    background-repeat: repeat-x;
+    background-repeat: repeat-y;
+}
