@@ -9,9 +9,24 @@ imeOff {
 
 body {
     font-size: 12px;
+    background-color: pink;
 }
 
 table filter_condition {
-    
+    border: 1px;
     background-color: yellow;
 }
+
+table filter_condition.tr {
+    border: 1px;
+    background-color: yellow;
+}
+
+table details_info {
+    background-color: lightyellow;
+}
+table details_info.tr {
+    background-color: palegreen;
+    border:2px;
+}
+
