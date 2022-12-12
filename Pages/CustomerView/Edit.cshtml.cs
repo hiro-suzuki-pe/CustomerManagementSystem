@@ -20,7 +20,7 @@ namespace CustomerManagementSystem.Pages.CustomerView
         }
 
         [BindProperty]
-        public vw_customer CustomerView { get; set; } = default!;
+        public vw_customer vw_customer { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,12 +29,12 @@ namespace CustomerManagementSystem.Pages.CustomerView
                 return NotFound();
             }
 
-            var customerview =  await _context.CustomerView.FirstOrDefaultAsync(m => m.Id == id);
-            if (customerview == null)
+            var vw_customerL =  await _context.CustomerView.FirstOrDefaultAsync(m => m.Id == id);
+            if (vw_customerL == null)
             {
                 return NotFound();
             }
-            CustomerView = customerview;
+            vw_customer = vw_customerL;
             return Page();
         }
 
@@ -47,7 +47,7 @@ namespace CustomerManagementSystem.Pages.CustomerView
                 return Page();
             }
 
-            _context.Attach(CustomerView).State = EntityState.Modified;
+            _context.Attach(vw_customer).State = EntityState.Modified;
 
             try
             {
@@ -55,7 +55,7 @@ namespace CustomerManagementSystem.Pages.CustomerView
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CustomerViewExists(CustomerView.Id))
+                if (!vw_customerExists(vw_customer.Id))
                 {
                     return NotFound();
                 }
@@ -68,7 +68,7 @@ namespace CustomerManagementSystem.Pages.CustomerView
             return RedirectToPage("./Index");
         }
 
-        private bool CustomerViewExists(int id)
+        private bool vw_customerExists(int id)
         {
           return _context.CustomerView.Any(e => e.Id == id);
         }

@@ -29,12 +29,12 @@ namespace CustomerManagementSystem.Pages.Company
                 return NotFound();
             }
 
-            var tbl_company =  await _context.Company.FirstOrDefaultAsync(m => m.Id == id);
-            if (tbl_company == null)
+            var tbl_companyL =  await _context.Company.FirstOrDefaultAsync(m => m.Id == id);
+            if (tbl_companyL == null)
             {
                 return NotFound();
             }
-            tbl_company = tbl_company;
+            tbl_company = tbl_companyL;
             return Page();
         }
 

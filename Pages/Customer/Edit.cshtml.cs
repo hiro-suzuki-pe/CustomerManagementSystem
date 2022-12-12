@@ -29,12 +29,12 @@ namespace CustomerManagementSystem.Pages.Customer
                 return NotFound();
             }
 
-            var tbl_customer =  await _context.Customer.FirstOrDefaultAsync(m => m.Id == id);
-            if (tbl_customer == null)
+            var tbl_customerL =  await _context.Customer.FirstOrDefaultAsync(m => m.Id == id);
+            if (tbl_customerL == null)
             {
                 return NotFound();
             }
-            tbl_customer = tbl_customer;
+            tbl_customer = tbl_customerL;
             return Page();
         }
 

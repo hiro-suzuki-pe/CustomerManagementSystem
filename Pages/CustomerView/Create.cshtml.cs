@@ -24,7 +24,7 @@ namespace CustomerManagementSystem.Pages.CustomerView
         }
 
         [BindProperty]
-        public vw_customer CustomerView { get; set; }
+        public vw_customer vw_customer { get; set; }
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -35,7 +35,7 @@ namespace CustomerManagementSystem.Pages.CustomerView
                 return Page();
             }
 
-            _context.CustomerView.Add(CustomerView);
+            _context.CustomerView.Add(vw_customer);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

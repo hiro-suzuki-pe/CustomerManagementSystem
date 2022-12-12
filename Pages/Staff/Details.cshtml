@@ -10,6 +10,50 @@
 <div>
     <h4>tbl_staff</h4>
     <hr />
+
+    <table>
+        <tr>
+        <td class="col-sm-2">
+    @Html.DisplayNameFor(model => model.tbl_staff.staff_name)
+        </td>
+        <td class="col-sm-10">
+    @Html.DisplayFor(model => model.tbl_staff.staff_name)
+        </td>
+        </tr>
+        <tr>
+        <td class="col-sm-2">
+    @Html.DisplayNameFor(model => model.tbl_staff.userId)
+        </td>
+        <td class="col-sm-10">
+    @Html.DisplayFor(model => model.tbl_staff.userId)
+        </td>
+        </tr>
+        <tr>
+            <td class="col-sm-2">
+    @Html.DisplayNameFor(model => model.tbl_staff.password)
+        </td>
+        <td class="col-sm-10">
+    @Html.DisplayFor(model => model.tbl_staff.password)
+        </td>
+        </tr>
+        <tr>
+            <td class="col-sm-2">
+    @Html.DisplayNameFor(model => model.tbl_staff.admin_flag)
+        </td>
+        <td class="col-sm-10">
+    @Html.DisplayFor(model => model.tbl_staff.admin_flag)
+        </td>
+        </tr>
+        <tr>
+            <td class="col-sm-2">
+    @Html.DisplayNameFor(model => model.tbl_staff.delete_flag)
+        </td>
+        <td class="col-sm-10">
+    @Html.DisplayFor(model => model.tbl_staff.delete_flag)
+        </td>
+    </table>
+
+        <!--
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.tbl_staff.staff_name)
@@ -41,6 +85,7 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.tbl_staff.delete_flag)
         </dd>
+        -->
     </dl>
 </div>
 <div>

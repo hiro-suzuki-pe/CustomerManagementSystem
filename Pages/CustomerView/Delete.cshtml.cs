@@ -19,7 +19,7 @@ namespace CustomerManagementSystem.Pages.CustomerView
         }
 
         [BindProperty]
-      public vw_customer CustomerView { get; set; }
+      public vw_customer vw_customer { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,15 +28,15 @@ namespace CustomerManagementSystem.Pages.CustomerView
                 return NotFound();
             }
 
-            var customerview = await _context.CustomerView.FirstOrDefaultAsync(m => m.Id == id);
+            var vw_customerL = await _context.CustomerView.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (customerview == null)
+            if (vw_customerL == null)
             {
                 return NotFound();
             }
             else 
             {
-                CustomerView = customerview;
+                vw_customer = vw_customerL;
             }
             return Page();
         }
@@ -47,12 +47,12 @@ namespace CustomerManagementSystem.Pages.CustomerView
             {
                 return NotFound();
             }
-            var customerview = await _context.CustomerView.FindAsync(id);
+            var vw_customer = await _context.CustomerView.FindAsync(id);
 
-            if (customerview != null)
+            if (vw_customer != null)
             {
-                CustomerView = customerview;
-                _context.CustomerView.Remove(CustomerView);
+                vw_customer = vw_customer;
+                _context.CustomerView.Remove(vw_customer);
                 await _context.SaveChangesAsync();
             }
 

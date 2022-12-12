@@ -27,14 +27,14 @@ namespace CustomerManagementSystem.Pages.Staff
                 return NotFound();
             }
 
-            var tbl_staff = await _context.Staff.FirstOrDefaultAsync(m => m.Id == id);
-            if (tbl_staff == null)
+            var tbl_staffL = await _context.Staff.FirstOrDefaultAsync(m => m.Id == id);
+            if (tbl_staffL == null)
             {
                 return NotFound();
             }
             else 
             {
-                tbl_staff = tbl_staff;
+                tbl_staff = tbl_staffL;
             }
             return Page();
         }

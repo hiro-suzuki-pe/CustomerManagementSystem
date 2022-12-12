@@ -7,49 +7,82 @@
 
 <h1>Edit</h1>
 
-<h4>CustomerView</h4>
+<h4>vw_customer</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="CustomerView.Id" />
+            <input type="hidden" asp-for="vw_customer.Id" />
             <div class="form-group">
-                <label asp-for="CustomerView.customer_name" class="control-label"></label>
-                <input asp-for="CustomerView.customer_name" class="form-control" />
-                <span asp-validation-for="CustomerView.customer_name" class="text-danger"></span>
+                <label asp-for="vw_customer.customer_name" class="control-label"></label>
+                <input asp-for="vw_customer.customer_name" class="form-control" />
+                <span asp-validation-for="vw_customer.customer_name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CustomerView.customer_kana" class="control-label"></label>
-                <input asp-for="CustomerView.customer_kana" class="form-control" />
-                <span asp-validation-for="CustomerView.customer_kana" class="text-danger"></span>
+                <label asp-for="vw_customer.customer_kana" class="control-label"></label>
+                <input asp-for="vw_customer.customer_kana" class="form-control" />
+                <span asp-validation-for="vw_customer.customer_kana" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CustomerView.company_name" class="control-label"></label>
-                <input asp-for="CustomerView.company_name" class="form-control" />
-                <span asp-validation-for="CustomerView.company_name" class="text-danger"></span>
+                <label asp-for="vw_customer.section" class="control-label"></label>
+                <input asp-for="vw_customer.section" class="form-control" />
+                <span asp-validation-for="vw_customer.section" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CustomerView.section" class="control-label"></label>
-                <input asp-for="CustomerView.section" class="form-control" />
-                <span asp-validation-for="CustomerView.section" class="text-danger"></span>
+                <label asp-for="vw_customer.post" class="control-label"></label>
+                <input asp-for="vw_customer.post" class="form-control" />
+                <span asp-validation-for="vw_customer.post" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CustomerView.post" class="control-label"></label>
-                <input asp-for="CustomerView.post" class="form-control" />
-                <span asp-validation-for="CustomerView.post" class="text-danger"></span>
+                <label asp-for="vw_customer.first_action_date" class="control-label"></label>
+                <input asp-for="vw_customer.first_action_date" class="form-control" />
+                <span asp-validation-for="vw_customer.first_action_date" class="text-danger"></span>
             </div>
-            <!--
-                <div class="form-group">
-                    <label asp-for="CustomerView.tel" class="control-label"></label>
-                    <input asp-for="CustomerView.tel" class="form-control" />
-                    <span asp-validation-for="CustomerView.tel" class="text-danger"></span>
-                </div>
-            -->
             <div class="form-group">
-                <label asp-for="CustomerView.staff_name" class="control-label"></label>
-                <input asp-for="CustomerView.staff_name" class="form-control" />
-                <span asp-validation-for="CustomerView.staff_name" class="text-danger"></span>
+                <label asp-for="vw_customer.zipcode" class="control-label"></label>
+                <input asp-for="vw_customer.zipcode" class="form-control" />
+                <span asp-validation-for="vw_customer.zipcode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vw_customer.address" class="control-label"></label>
+                <input asp-for="vw_customer.address" class="form-control" />
+                <span asp-validation-for="vw_customer.address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vw_customer.tel" class="control-label"></label>
+                <input asp-for="vw_customer.tel" class="form-control" />
+                <span asp-validation-for="vw_customer.tel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vw_customer.memo" class="control-label"></label>
+                <input asp-for="vw_customer.memo" class="form-control" />
+                <span asp-validation-for="vw_customer.memo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vw_customer.update_date" class="control-label"></label>
+                <input asp-for="vw_customer.update_date" class="form-control" />
+                <span asp-validation-for="vw_customer.update_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vw_customer.update_staff_name" class="control-label"></label>
+                <input asp-for="vw_customer.update_staff_name" class="form-control" />
+                <span asp-validation-for="vw_customer.update_staff_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vw_customer.company_name" class="control-label"></label>
+                <input asp-for="vw_customer.company_name" class="form-control" />
+                <span asp-validation-for="vw_customer.company_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vw_customer.company_kana" class="control-label"></label>
+                <input asp-for="vw_customer.company_kana" class="form-control" />
+                <span asp-validation-for="vw_customer.company_kana" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vw_customer.staff_name" class="control-label"></label>
+                <input asp-for="vw_customer.staff_name" class="form-control" />
+                <span asp-validation-for="vw_customer.staff_name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

@@ -26,6 +26,7 @@ header {
 footer {
     background-color: lightblue
 }
+
 body {
   margin-bottom: 60px;
   background-color:aquamarine
@@ -34,11 +35,11 @@ body {
 article {
     background-color: lightpink;
     width: 620px;
-    float: left; /*��aside�i�T�C�h�o�[�j��float:right�ŉE�񂹂ɁB*/
+    float: left; 
 }
 aside {
     background-color: lightyellow;
-    float: right;  /*��aside�i�T�C�h�o�[�j��float:right�ŉE�񂹂ɁB*/
+    float: right;
 }
 
 table 
@@ -56,6 +57,14 @@ table tr:nth-child(odd) td {
 
 table tr:nth-child(even) td {
     background-color: lightyellow;
+}
+
+
+col-sm-2{
+    width: 20px;
+}
+col-sm-10{
+    width: 100px;
 }
 
 

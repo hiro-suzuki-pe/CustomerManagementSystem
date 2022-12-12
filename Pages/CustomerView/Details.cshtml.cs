@@ -18,7 +18,7 @@ namespace CustomerManagementSystem.Pages.CustomerView
             _context = context;
         }
 
-      public vw_customer CustomerView { get; set; }
+      public vw_customer vw_customer { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -27,14 +27,14 @@ namespace CustomerManagementSystem.Pages.CustomerView
                 return NotFound();
             }
 
-            var customerview = await _context.CustomerView.FirstOrDefaultAsync(m => m.Id == id);
-            if (customerview == null)
+            var vw_customerL = await _context.CustomerView.FirstOrDefaultAsync(m => m.Id == id);
+            if (vw_customerL == null)
             {
                 return NotFound();
             }
             else 
             {
-                CustomerView = customerview;
+                vw_customer = vw_customerL;
             }
             return Page();
         }

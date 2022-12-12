@@ -28,6 +28,16 @@ table.details_info {
     border-style: double;
 
 }
+
+    table.details_info.item_label {
+        background-color: tan;
+    }
+
+    table.details_info.item_data {
+        background-color: lightgoldenrodyellow;
+    }
+
+
 table.details_info tr {
     background-color: red;
     line-height:20px;
@@ -35,6 +45,8 @@ table.details_info tr {
      border: 1px;
          
 }
+
+
 
 h1 {
     color: #0bd;

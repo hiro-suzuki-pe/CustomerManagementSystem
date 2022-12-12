@@ -27,14 +27,14 @@ namespace CustomerManagementSystem.Pages.Action
                 return NotFound();
             }
 
-            var tbl_action = await _context.Action.FirstOrDefaultAsync(m => m.Id == id);
-            if (tbl_action == null)
+            var tbl_actionL = await _context.Action.FirstOrDefaultAsync(m => m.Id == id);
+            if (tbl_actionL == null)
             {
                 return NotFound();
             }
             else 
             {
-                tbl_action = tbl_action;
+                tbl_action = tbl_actionL;
             }
             return Page();
         }

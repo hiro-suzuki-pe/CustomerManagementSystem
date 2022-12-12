@@ -13,24 +13,23 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.tbl_action[0].customerId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.tbl_action[0].action_date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.tbl_action[0].action_content)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.tbl_action[0].action_staffId)
-            </th>
+            <th>ID </th>
+            <th>顧客ID </th>
+            <th>日付</th>
+            <th>対応内容</th>
+            <th>営業担当者ID</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.tbl_action) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customerId)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.customerId)
             </td>

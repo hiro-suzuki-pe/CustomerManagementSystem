@@ -18,13 +18,13 @@ namespace CustomerManagementSystem.Pages.CustomerView
             _context = context;
         }
 
-        public IList<vw_customer> CustomerView { get;set; } = default!;
+        public IList<vw_customer> vw_customer { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
             if (_context.CustomerView != null)
             {
-                CustomerView = await _context.CustomerView.ToListAsync();
+                vw_customer = await _context.CustomerView.ToListAsync();
             }
         }
     }
