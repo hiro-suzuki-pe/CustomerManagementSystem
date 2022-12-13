@@ -28,15 +28,15 @@ namespace CustomerManagementSystem.Pages.Customer
                 return NotFound();
             }
 
-            var tbl_customer = await _context.Customer.FirstOrDefaultAsync(m => m.Id == id);
+            var tbl_customerL = await _context.Customer.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (tbl_customer == null)
+            if (tbl_customerL == null)
             {
                 return NotFound();
             }
             else 
             {
-                tbl_customer = tbl_customer;
+                tbl_customerL = tbl_customer;
             }
             return Page();
         }
@@ -47,11 +47,11 @@ namespace CustomerManagementSystem.Pages.Customer
             {
                 return NotFound();
             }
-            var tbl_customer = await _context.Customer.FindAsync(id);
+            var tbl_customerL = await _context.Customer.FindAsync(id);
 
-            if (tbl_customer != null)
+            if (tbl_customerL != null)
             {
-                tbl_customer = tbl_customer;
+                tbl_customer = tbl_customerL;
                 _context.Customer.Remove(tbl_customer);
                 await _context.SaveChangesAsync();
             }

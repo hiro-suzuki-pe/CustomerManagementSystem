@@ -47,11 +47,11 @@ namespace CustomerManagementSystem.Pages.Staff
             {
                 return NotFound();
             }
-            var tbl_staff = await _context.Staff.FindAsync(id);
+            var tbl_staffL = await _context.Staff.FindAsync(id);
 
-            if (tbl_staff != null)
+            if (tbl_staffL != null)
             {
-                tbl_staff = tbl_staff;
+                tbl_staff = tbl_staffL;
                 _context.Staff.Remove(tbl_staff);
                 await _context.SaveChangesAsync();
             }

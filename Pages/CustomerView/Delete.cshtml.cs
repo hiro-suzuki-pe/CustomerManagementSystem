@@ -47,11 +47,11 @@ namespace CustomerManagementSystem.Pages.CustomerView
             {
                 return NotFound();
             }
-            var vw_customer = await _context.CustomerView.FindAsync(id);
+            var vw_customerL = await _context.CustomerView.FindAsync(id);
 
-            if (vw_customer != null)
+            if (vw_customerL != null)
             {
-                vw_customer = vw_customer;
+                vw_customer = vw_customerL;
                 _context.CustomerView.Remove(vw_customer);
                 await _context.SaveChangesAsync();
             }
