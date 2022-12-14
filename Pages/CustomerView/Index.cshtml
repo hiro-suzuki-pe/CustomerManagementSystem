@@ -30,7 +30,7 @@
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.customer_name)
+                <a asp-page="./Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.customer_name)</a>
             </td>
             <td>
             @Html.DisplayFor(modelItem => item.customer_kana)
@@ -47,11 +47,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.staff_name)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }
