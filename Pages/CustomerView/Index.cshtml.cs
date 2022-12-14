@@ -20,25 +20,35 @@ namespace CustomerManagementSystem.Pages.CustomerView
         }
 
         public string CustomerNameSort { get; set; }
-        public string CustomerKanaSort { get; set; }
         public string CompanyNameSort { get; set; }
-        public string CompanyKanaSort { get; set; }
         public string CurrentFilter { get; set; }
         public string CurrentSort { get; set; }
 
         public IList<vw_customer> vw_customer { get;set; } = default!;
 
-        public async Task OnGetAsync(string sortOrder)
+        public async Task OnGetAsync(string sortOrder, string searchCustomer, string searchCompany, string searchMyCustomer)
         {
             if (_context.CustomerView != null)
             {
-                // using system ;
-                // CustomerNameSort = String.IsNullOrEmpty(sortOrder) ? "customer_kana_desc" : "";
-                // CustomerKanaSort = String.IsNullOrEmpty(sortOrder) ? "customer_kana_desc" : "";
-                // CompanyNameSort = String.IsNullOrEmpty(sortOrder) ? "Company_kana_desc" : "";
-                // CompanyKanaSort = String.IsNullOrEmpty(sortOrder) ? "Company_kana_desc" : "";
+ //               CurrentFilter = searchCustomer;
 
-                IQueryable<vw_customer> CustomerViewIQ = from s in _context.CustomerView select s;
+                IQueryable<vw_customer> CustomerViewIQ = 
+                    from s in _context.CustomerView select s;
+                if (!String.IsNullOrEmpty(searchCustomer) && !String.IsNullOrEmpty(searchCompany))
+                {
+                    CustomerViewIQ =
+                        CustomerViewIQ.Where(s => s.customer_name.Contains(searchCustomer)
+                            && s.company_name.Contains(searchCompany));
+                } else if (!String.IsNullOrEmpty(searchCustomer))
+                {
+                    CustomerViewIQ =
+                        CustomerViewIQ.Where(s => s.customer_name.Contains(searchCustomer));
+                } else if (!String.IsNullOrEmpty(searchCompany))
+                {
+                    CustomerViewIQ =
+                        CustomerViewIQ.Where(s => s.company_name.Contains(searchCompany));
+                }
+
                 switch (sortOrder)
                 {
                     //   case "customer_kana_desc":
