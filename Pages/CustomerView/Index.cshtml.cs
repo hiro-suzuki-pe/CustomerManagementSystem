@@ -33,24 +33,24 @@ namespace CustomerManagementSystem.Pages.CustomerView
             if (_context.CustomerView != null)
             {
                 // using system ;
-                CustomerNameSort = String.IsNullOrEmpty(sortOrder) ? "customer_kana_desc" : "";
-                CustomerKanaSort = String.IsNullOrEmpty(sortOrder) ? "customer_kana_desc" : "";
-                CompanyNameSort = String.IsNullOrEmpty(sortOrder) ? "Company_kana_desc" : "";
-                CompanyKanaSort = String.IsNullOrEmpty(sortOrder) ? "Company_kana_desc" : "";
+                // CustomerNameSort = String.IsNullOrEmpty(sortOrder) ? "customer_kana_desc" : "";
+                // CustomerKanaSort = String.IsNullOrEmpty(sortOrder) ? "customer_kana_desc" : "";
+                // CompanyNameSort = String.IsNullOrEmpty(sortOrder) ? "Company_kana_desc" : "";
+                // CompanyKanaSort = String.IsNullOrEmpty(sortOrder) ? "Company_kana_desc" : "";
 
                 IQueryable<vw_customer> CustomerViewIQ = from s in _context.CustomerView select s;
                 switch (sortOrder)
                 {
-                    case "customer_kana_desc":
-                        CustomerViewIQ = CustomerViewIQ.OrderByDescending(s => s.customer_kana);
+                    //   case "customer_kana_desc":
+                    case "CustomerNameSort":
+                        CustomerViewIQ = CustomerViewIQ.OrderBy(s => s.customer_kana);
                         break;
-                    case "company_kana_desc":
-                        CustomerViewIQ = CustomerViewIQ.OrderByDescending(s => s.company_kana);
+                    case "CompanyNameSort":
+                        CustomerViewIQ = CustomerViewIQ.OrderBy(s => s.company_kana);
                         break;
                     default:
-                        CustomerViewIQ = CustomerViewIQ.OrderByDescending(s => s.Id);
+                        CustomerViewIQ = CustomerViewIQ.OrderBy(s => s.Id);
                         break;
-
                 }
                 vw_customer = await CustomerViewIQ.AsNoTracking().ToListAsync();
             }

@@ -13,10 +13,18 @@
 <table class="table">
     <thead>
         <tr>
-            <th>顧客ID </th>
-            <th>顧客名 </th>
-            <th>顧客名カナ </th>
-            <th>会社名 </th>
+            <th>
+                <a asp-route-sortOrder=""> 顧客ID</a>
+            </th>
+            <th>
+                <a asp-route-sortOrder="CustomerNameSort"> 顧客名</a>
+            </th>
+            <th>
+                <a asp-route-sortOrder="CustomerNameSort"> 顧客名カナ</a>
+            </th>
+            <th>               
+                <a asp-route-sortOrder="CompanyNameSort"> 会社名</a>
+            </th>
             <th>部署名 </th>
             <th>役職 </th>
             <th>営業担当者 </th>
