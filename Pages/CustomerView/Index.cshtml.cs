@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CustomerManagementSystem.Models;
+using Microsoft.Data.SqlClient;
 
 namespace CustomerManagementSystem.Pages.CustomerView
 {
@@ -18,13 +19,40 @@ namespace CustomerManagementSystem.Pages.CustomerView
             _context = context;
         }
 
+        public string CustomerNameSort { get; set; }
+        public string CustomerKanaSort { get; set; }
+        public string CompanyNameSort { get; set; }
+        public string CompanyKanaSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
+
         public IList<vw_customer> vw_customer { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string sortOrder)
         {
             if (_context.CustomerView != null)
             {
-                vw_customer = await _context.CustomerView.ToListAsync();
+                // using system ;
+                CustomerNameSort = String.IsNullOrEmpty(sortOrder) ? "customer_kana_desc" : "";
+                CustomerKanaSort = String.IsNullOrEmpty(sortOrder) ? "customer_kana_desc" : "";
+                CompanyNameSort = String.IsNullOrEmpty(sortOrder) ? "Company_kana_desc" : "";
+                CompanyKanaSort = String.IsNullOrEmpty(sortOrder) ? "Company_kana_desc" : "";
+
+                IQueryable<vw_customer> CustomerViewIQ = from s in _context.CustomerView select s;
+                switch (sortOrder)
+                {
+                    case "customer_kana_desc":
+                        CustomerViewIQ = CustomerViewIQ.OrderByDescending(s => s.customer_kana);
+                        break;
+                    case "company_kana_desc":
+                        CustomerViewIQ = CustomerViewIQ.OrderByDescending(s => s.company_kana);
+                        break;
+                    default:
+                        CustomerViewIQ = CustomerViewIQ.OrderByDescending(s => s.Id);
+                        break;
+
+                }
+                vw_customer = await CustomerViewIQ.AsNoTracking().ToListAsync();
             }
         }
     }
