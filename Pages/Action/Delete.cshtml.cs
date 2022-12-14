@@ -47,11 +47,11 @@ namespace CustomerManagementSystem.Pages.Action
             {
                 return NotFound();
             }
-            var tbl_action = await _context.Action.FindAsync(id);
+            var tbl_actionL = await _context.Action.FindAsync(id);
 
-            if (tbl_action != null)
+            if (tbl_actionL != null)
             {
-                tbl_action = tbl_action;
+                tbl_action = tbl_actionL;
                 _context.Action.Remove(tbl_action);
                 await _context.SaveChangesAsync();
             }
