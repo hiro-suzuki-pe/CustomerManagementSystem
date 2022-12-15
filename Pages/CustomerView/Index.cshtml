@@ -28,16 +28,16 @@
     <thead>
         <tr>
             <th>
-                <a asp-route-sortOrder=""> 顧客ID</a>
+                <a asp-page="./Index" asp-route-sortOrder=""> 顧客ID</a>
             </th>
             <th>
-                <a asp-route-sortOrder="CustomerNameSort"> 顧客名</a>
+                <a asp-page="./Index" asp-route-sortOrder="CustomerNameSort"> 顧客名</a>
             </th>
             <th>
-                <a asp-route-sortOrder="CustomerNameSort"> 顧客名カナ</a>
+                <a asp-page="./Index" asp-route-sortOrder="CustomerNameSort"> 顧客名カナ</a>
             </th>
             <th>               
-                <a asp-route-sortOrder="CompanyNameSort"> 会社名</a>
+                <a asp-page="./Index" asp-route-sortOrder="CompanyNameSort"> 会社名</a>
             </th>
             <th>部署名 </th>
             <th>役職 </th>
@@ -74,3 +74,23 @@
 }
     </tbody>
 </table>
+
+@{
+    var prevDisabled = !Model.vw_customer.HasPreviousPage ? "disabled": "";
+    var nextDisabled = !Model.vw_customer.HasNextPage ? "disabled" : "";
+}
+
+<a  asp-page="./Index"
+    asp-route-sortOrder="Model.CurrentSort"
+    asp-route-pageIndex="@(Model.vw_customer.PageIndex - 1)"
+    asp-route-currentFilter="@Model.CurrentFilter"
+    class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+
+<a  asp-page="./Index"
+    asp-route-sortOrder="@Model.CurrentSort"asp-route-pageIndex="@(Model.vw_customer.PageIndex + 1)"
+    asp-route-currentFilter="@Model.CurrentFilter"
+    class="btn btn-primary @nextDisabled">
+    Next
+</a>
