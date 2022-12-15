@@ -81,7 +81,7 @@
 }
 
 <a  asp-page="./Index"
-    asp-route-sortOrder="Model.CurrentSort"
+    asp-route-sortOrder="@Model.CurrentSort"
     asp-route-pageIndex="@(Model.vw_customer.PageIndex - 1)"
     asp-route-currentFilter="@Model.CurrentFilter"
     class="btn btn-primary @prevDisabled">
@@ -89,7 +89,7 @@
 </a>
 
 <a  asp-page="./Index"
-    asp-route-sortOrder="@Model.CurrentSort"asp-route-pageIndex="@(Model.vw_customer.PageIndex + 1)"
+    asp-route-sortOrder="@Model.CurrentSort" asp-route-pageIndex="@(Model.vw_customer.PageIndex + 1)"
     asp-route-currentFilter="@Model.CurrentFilter"
     class="btn btn-primary @nextDisabled">
     Next
