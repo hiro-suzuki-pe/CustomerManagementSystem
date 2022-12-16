@@ -34,9 +34,9 @@ body {
 
 article {
     background-color: lightpink;
-    width: 620px;
     float: left; 
 }
+
 aside {
     background-color: lightyellow;
     float: right;
@@ -44,12 +44,13 @@ aside {
 
 table 
 {
-    background-color: palegreen;
+    background-color: green;
+    border: 1;
 }
 
-    table thead {
-        background-color: yellow;
-    }
+table thead {
+    background-color: yellow;
+}
 
 table tr:nth-child(odd) td {
     background-color: lightblue;
@@ -59,12 +60,15 @@ table tr:nth-child(even) td {
     background-color: lightyellow;
 }
 
-
-col-sm-2{
-    width: 20px;
+.col-sm-2 {
+    width: 250px;
+    background-color: tan;
+    color: red;
 }
-col-sm-10{
-    width: 100px;
+
+.col-sm-10 {
+    width:800px;
+    background-color: lightgoldenrodyellow;
 }
 
 

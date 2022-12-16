@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\images\**" />
+    <Content Remove="Pages\images\**" />
+    <EmbeddedResource Remove="Pages\images\**" />
+    <None Remove="Pages\images\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Migrations\20221123210234_Initial.cs" />
     <Compile Remove="Migrations\20221123210234_Initial.Designer.cs" />
     <Compile Remove="Migrations\20221123210633_CustomerManagement.cs" />
@@ -21,7 +28,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\images\back.gif" />
+    <Content Remove="wwwroot\images\bg.png" />
+    <Content Remove="wwwroot\images\title.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Pages\Index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Pages\Index.html" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,7 +57,12 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="Pages\Company\" />
-    <Folder Include="Pages\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\back.gif" />
+    <None Include="wwwroot\images\bg.png" />
+    <None Include="wwwroot\images\title.gif" />
   </ItemGroup>
 
 </Project>
