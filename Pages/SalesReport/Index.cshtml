@@ -1,0 +1,60 @@
+﻿@page
+@model CustomerManagementSystem.Pages.SalesReport.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.vw_salesReport[0].action_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vw_salesReport[0].staff_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vw_salesReport[0].customer_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vw_salesReport[0].company_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vw_salesReport[0].action_content)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.vw_salesReport) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.action_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.staff_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.company_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.action_content)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -12,5 +12,6 @@ namespace CustomerManagementSystem.Models
         public DbSet <tbl_action> Action { get; set; }
         public DbSet <tbl_staff> Staff { get; set; }
         public DbSet<CustomerManagementSystem.Models.vw_customer> CustomerView { get; set; }
+        public DbSet<CustomerManagementSystem.Models.vw_salesReport> SalesReport { get; set; }
     }
 }

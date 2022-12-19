@@ -7,9 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\新しいフォルダー\**" />
     <Compile Remove="Pages\images\**" />
+    <Content Remove="Models\新しいフォルダー\**" />
     <Content Remove="Pages\images\**" />
+    <EmbeddedResource Remove="Models\新しいフォルダー\**" />
     <EmbeddedResource Remove="Pages\images\**" />
+    <None Remove="Models\新しいフォルダー\**" />
     <None Remove="Pages\images\**" />
   </ItemGroup>
 
@@ -51,7 +55,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.11" />
   </ItemGroup>
 
   <ItemGroup>
