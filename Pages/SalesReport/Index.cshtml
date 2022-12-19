@@ -35,7 +35,7 @@
 @foreach (var item in Model.vw_salesReport) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.action_date)
+                    @Html.DisplayFor(modelItem => item.action_date, "{0:yyyy/MM/dd}")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.staff_name)

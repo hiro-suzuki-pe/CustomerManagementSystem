@@ -22,9 +22,12 @@ namespace CustomerManagementSystem.Pages.SalesReport
 
         public async Task OnGetAsync()
         {
+            IQueryable<vw_salesReport> salesReportIQ = from s in _context.SalesReport select s;
+
             if (_context.SalesReport != null)
             {
-                vw_salesReport = await _context.SalesReport.ToListAsync();
+                salesReportIQ = salesReportIQ.OrderBy(s => s.action_date);
+                vw_salesReport = await salesReportIQ.AsNoTracking().ToListAsync();
             }
         }
     }

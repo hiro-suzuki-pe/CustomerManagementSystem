@@ -1,4 +1,5 @@
-﻿using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+﻿using System.ComponentModel.DataAnnotations;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace CustomerManagementSystem.Models
 {
@@ -9,11 +10,13 @@ namespace CustomerManagementSystem.Models
         public string customer_kana { get; set; } = String.Empty;
         public string section { get; set; } = String.Empty;
         public string post { get; set; } = String.Empty;
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
         public DateTime first_action_date { get; set; }
         public string zipcode { get; set; } = String.Empty;
         public string address { get; set; } = String.Empty;
         public string tel { get; set; } = String.Empty;
         public string memo { get; set; } = String.Empty;
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
         public DateTime	update_date { get; set; }
         public string update_staff_name { get; set; } = String.Empty;
         public string company_name { get; set; } = String.Empty;
