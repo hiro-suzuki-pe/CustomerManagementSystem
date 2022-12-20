@@ -10,6 +10,19 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            期間：
+            <input type="text" name="fromDate" />
+            ～
+            <input type="text" name="toDate" />
+            <input type="submit" value="フィルター実行" class="btn btn-primary" />
+        </p>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
