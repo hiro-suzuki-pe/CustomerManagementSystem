@@ -85,12 +85,12 @@
     asp-route-pageIndex="@(Model.vw_customer.PageIndex - 1)"
     asp-route-currentFilter="@Model.CurrentFilter"
     class="btn btn-primary @prevDisabled">
-    Previous
+    前ページ
 </a>
 
 <a  asp-page="./Index"
     asp-route-sortOrder="@Model.CurrentSort" asp-route-pageIndex="@(Model.vw_customer.PageIndex + 1)"
     asp-route-currentFilter="@Model.CurrentFilter"
     class="btn btn-primary @nextDisabled">
-    Next
+    次ページ
 </a>

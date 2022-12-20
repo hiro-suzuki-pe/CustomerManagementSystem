@@ -61,3 +61,19 @@
 }
     </tbody>
 </table>
+
+
+@{
+    var prevDisabled = !Model.vw_salesReport.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.vw_salesReport.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index" asp-route-pageIndex="@(Model.vw_salesReport.PageIndex - 1)"
+   class="btn btn-primary @prevDisabled">
+    前ページ
+</a>
+
+<a asp-page="./Index" asp-route-pageIndex="@(Model.vw_salesReport.PageIndex + 1)"
+   class="btn btn-primary @nextDisabled">
+    次ページ
+</a>
