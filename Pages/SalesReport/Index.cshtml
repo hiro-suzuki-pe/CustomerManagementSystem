@@ -13,21 +13,11 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.vw_salesReport[0].action_date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.vw_salesReport[0].staff_name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.vw_salesReport[0].customer_name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.vw_salesReport[0].company_name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.vw_salesReport[0].action_content)
-            </th>
+            <th>日付</th>
+            <th>対応者</th>
+            <th>顧客名</th>
+            <th>会社名 </th>
+            <th>対応内容 </th>
             <th></th>
         </tr>
     </thead>
@@ -35,7 +25,7 @@
 @foreach (var item in Model.vw_salesReport) {
         <tr>
             <td>
-                    @Html.DisplayFor(modelItem => item.action_date, "{0:yyyy/MM/dd}")
+                @Html.DisplayFor(modelItem => item.action_date, "{0:yyyy/MM/dd}")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.staff_name)
