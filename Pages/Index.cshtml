@@ -4,7 +4,7 @@
     ViewData["Title"] = "ホームページ";
 }
 <div>
-    <img src="Nemophila.jpg" alt="[loading failed]" />
+    <img src="~/images/Nemophila.jpg" alt="[loading failed]" />
 </div>
 <div class="text-center">
    
@@ -22,7 +22,7 @@
         <a asp-page="/SalesReport/Index">営業報告一覧</a>
     </p>
     <p>
-        <a asp-page="./">顧客データのエクスポート</a>
+        <a asp-page="/CustomerExport">顧客データのエクスポート</a>
     </p>
     <p>
         <a asp-page="./">営業担当者の置換</a>
@@ -30,11 +30,8 @@
     <p>
         <a asp-page="/Staff/Index">スタッフマスター管理</a>
     </p>
-    <!--
-    <img src="D:/CustomerManagementSystem/Pages/images/back.gif" alt="[loading failed]" />
-    <img src="D:\\CustomerManagementSystem\\Pages\\images\\back.gif" alt="[loading failed]" />
-    -->
-    <img src="D:\CustomerManagementSystem\Pages\images\back.gif" alt="[loading failed]" />
+
+    <img src="~/images/back.gif" alt="[loading failed]" />
 
     <table border="1" >
         <tr>

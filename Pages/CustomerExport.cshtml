@@ -1,0 +1,24 @@
+﻿@page
+@model CustomerManagementSystem.Pages.CustomerExportModel
+@{
+    ViewData["Title"] = "顧客データのエクスポート";
+}
+
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            出力対象担当者：
+            <select  class="form-control"
+                    asp-items="@Model.StaffSL">
+                <option value="">（すべての担当者）</option>
+            </select>            
+            <input type="submit" value="ファイル出力" class="btn btn-primary" />
+        </p>
+    </div>
+</form>
+

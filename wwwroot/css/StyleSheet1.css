@@ -65,7 +65,7 @@ p {
 
 body {
     background-color: #f5f2e5;
-    background-image: url(images/bg.png);
+    background-image: url(~/images/bg.png);
     background-repeat: repeat-x;
     background-repeat: repeat-y;
 }
