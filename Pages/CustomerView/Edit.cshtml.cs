@@ -19,22 +19,40 @@ namespace CustomerManagementSystem.Pages.CustomerView
             _context = context;
         }
 
-        [BindProperty]
-        public vw_customer vw_customer { get; set; } = default!;
 
+        [BindProperty]
+        public tbl_customer tbl_customer { get; set; } = default!;
+
+
+        public SelectList? CompanySL { get; set; }
+
+        public void PopulateCompanyDropDownList(MyContext _context,
+            object selectedCompany = null)
+        {
+            var staffQuery = from d in _context.Company
+                             orderby d.company_kana // Sort by staff_name.
+                             select d;
+
+            CompanySL = new SelectList(staffQuery, // items       
+                        "Id",                   // dataValueField
+                        "company_name",           // dataTextField
+                        selectedCompany);         // selectedValue
+        }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.CustomerView == null)
+            if (id == null || _context.Customer == null)
             {
                 return NotFound();
             }
 
-            var vw_customerL =  await _context.CustomerView.FirstOrDefaultAsync(m => m.Id == id);
-            if (vw_customerL == null)
+            var tbl_customerL =  await _context.Customer.FirstOrDefaultAsync(m => m.Id == id);
+            if (tbl_customerL == null)
             {
                 return NotFound();
             }
-            vw_customer = vw_customerL;
+            tbl_customer = tbl_customerL;
+
+            PopulateCompanyDropDownList(_context);
             return Page();
         }
 
@@ -47,7 +65,7 @@ namespace CustomerManagementSystem.Pages.CustomerView
                 return Page();
             }
 
-            _context.Attach(vw_customer).State = EntityState.Modified;
+            _context.Attach(tbl_customer).State = EntityState.Modified;
 
             try
             {
@@ -55,7 +73,7 @@ namespace CustomerManagementSystem.Pages.CustomerView
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!vw_customerExists(vw_customer.Id))
+                if (!tbl_customerExists(tbl_customer.Id))
                 {
                     return NotFound();
                 }
@@ -68,9 +86,9 @@ namespace CustomerManagementSystem.Pages.CustomerView
             return RedirectToPage("./Index");
         }
 
-        private bool vw_customerExists(int id)
+        private bool tbl_customerExists(int id)
         {
-          return _context.CustomerView.Any(e => e.Id == id);
+          return _context.Customer.Any(e => e.Id == id);
         }
     }
 }
