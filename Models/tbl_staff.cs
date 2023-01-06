@@ -6,7 +6,7 @@
         public string staff_name { get; set; } = string.Empty;
         public string? userId { get; set; } = string.Empty;
         public string? password { get; set; }  = string.Empty;
-        public bool? admin_flag { get; set; }
-        public bool? delete_flag { get; set; }
+        public bool admin_flag { get; set; } = false;
+        public bool delete_flag { get; set; } = false;
     }
 }
