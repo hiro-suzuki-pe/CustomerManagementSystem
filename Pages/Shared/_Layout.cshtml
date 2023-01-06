@@ -6,15 +6,12 @@
     <title>@ViewData["Title"] - 顧客対応管理システム</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <!--
-    <link rel="stylesheet" href="~/css/StyleSheet1.css" asp-append-version="true" />
-    -->
     <link rel="stylesheet" href="~/CustomerManagementSystem.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
+            <div class="header_container">
                 <table cellpadding="0" cellspacing="0" class="auto-style1">
                     <tr>
                         <td>
@@ -22,19 +19,19 @@
                                 <img src="~/images/title.gif" alt="[顧客対応管理システム]"/>
                             </a>
                         </td>
-                        <td>
+                        <td bgcolor="white">
                             <a asp-area="" asp-page="/Index">
                                 <img src="~/images/back.gif" alt="[メニューに戻る]"/>
                             </a>
 
                         </td>
-                        <td>
-                            <ul class="navbar-nav flex-grow-1">
+                        <td bgcolor="#fff8dc">
+                            <ul class="navbar-nav flex-grow-1" bgcolor="white">
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Index">ホーム</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">プライバシー</a>
                                 </li>
                             </ul>
                         </td>
@@ -46,21 +43,12 @@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
-            <article>
-                Article
-            </article>
-            <aside>
-                <h3>中の人ってこんな人</h3>
-                <p>このWebサイトで情報を発信しているManaです。よろしくお願いします!</p>
-                <img src="~/images/Nemophila.jpg" alt="[loading failed]" />
-
-            </aside>
         </main>
 
     </div>
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - 顧客対応管理システム - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        <div class="footer_container">
+            &copy; ヒロ鈴木技術士オフィス 2022-2023. - 顧客対応管理システム - <a asp-area="" asp-page="/Privacy">プライバシー</a>
         </div>
     </footer>
 
