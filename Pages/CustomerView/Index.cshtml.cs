@@ -24,7 +24,8 @@ namespace CustomerManagementSystem.Pages.CustomerView
 
         public string CustomerNameSort { get; set; }
         public string CompanyNameSort { get; set; }
-        public string CurrentFilter { get; set; }
+        public string CurrentCustomer { get; set; }
+        public string CurrentCompany { get; set; }
         public string CurrentSort { get; set; }
 
         public PaginatedList<vw_customer> vw_customer { get;set; } 
@@ -38,12 +39,22 @@ namespace CustomerManagementSystem.Pages.CustomerView
             if (searchCustomer != null)
             {
                 pageIndex = 1;
-            } 
+            }
             else
             {
-                searchCustomer = CurrentFilter;
+                searchCustomer = CurrentCustomer;
             }
-            CurrentFilter = searchCustomer;
+            CurrentCustomer = searchCustomer;
+
+            if (searchCompany != null)
+            {
+                pageIndex = 1;
+            }
+            else
+            {
+                searchCompany = CurrentCompany;
+            }
+            CurrentCompany = searchCompany;
 
             IQueryable<vw_customer> CustomerViewIQ = 
                 from s in _context.CustomerView select s;
