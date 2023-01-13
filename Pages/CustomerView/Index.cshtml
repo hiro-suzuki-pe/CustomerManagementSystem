@@ -7,9 +7,6 @@
 
 <h1>顧客一覧</h1>
 
-<p>
-    <a asp-page="Create">新規作成</a>
-</p>
 
 <form asp-page="./Index" method="get">
     <div class="form-actions no-color">
@@ -21,8 +18,9 @@
             <input type="checkbox" name="searchMyCustomer" value="@Model.CurrentCustomer" />
             自分の顧客のみ
             <input type="submit" value="フィルター実行" class="btn btn-primary" />
+            <a asp-page="Create">新規作成</a>
         </p>
-    </div>    
+    </div>
 </form>
 <table class="table">
     <thead>
