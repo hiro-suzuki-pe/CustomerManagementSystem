@@ -40,13 +40,21 @@
                             <span asp-validation-for="tbl_customer.customer_name" class="text-danger"></span>
                         </td>
                     </tr>
+
+
                     <tr>
                         <td class="col-sm-2">会社名</td>
-                        <td class="col-sm-10" colspan="3">                
-                            <input asp-for="tbl_customer.companyId" class="form-control" />
+                        <td class="col-sm-10" colspan="3">
+                            <select class="form-control"
+                                    asp-items="@Model.CompanySL"
+                                    asp-for="tbl_customer.companyId">
+                                <option value="tbl_customer.company_name" selected></option>
+                            </select>                           
                             <span asp-validation-for="tbl_customer.companyId" class="text-danger"></span>
                         </td>
                     </tr>
+
+
                     <tr>
                         <td class="col-sm-2">部署</td>
                         <td class ="col-sm-10">                
