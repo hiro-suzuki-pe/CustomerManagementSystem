@@ -2,11 +2,12 @@
 @model CustomerManagementSystem.Pages.Customer.EditModel
 
 @{
-    ViewData["Title"] = "顧客情報（編集）";
+    ViewData["Title"] = "Edit";
 }
 
-<h1>顧客情報（編集）</h1>
+<h1>Edit</h1>
 
+<h4>tbl_customer</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -40,21 +41,13 @@
                             <span asp-validation-for="tbl_customer.customer_name" class="text-danger"></span>
                         </td>
                     </tr>
-
-
                     <tr>
                         <td class="col-sm-2">会社名</td>
-                        <td class="col-sm-10" colspan="3">
-                            <select class="form-control"
-                                    asp-items="@Model.CompanySL"
-                                    asp-for="tbl_customer.companyId">
-                                <option value="tbl_customer.company_name" selected></option>
-                            </select>                           
+                        <td class="col-sm-10" colspan="3">                
+                            <input asp-for="tbl_customer.companyId" class="form-control" />
                             <span asp-validation-for="tbl_customer.companyId" class="text-danger"></span>
                         </td>
                     </tr>
-
-
                     <tr>
                         <td class="col-sm-2">部署</td>
                         <td class ="col-sm-10">                
@@ -98,24 +91,15 @@
                 </table>
 
             </div>
-
-            <input type="hidden" asp-for="tbl_customer.Id" /> Id
-            <input type="hidden" asp-for="tbl_customer.input_date" /> 入力日
-            <input type="hidden" asp-for="tbl_customer.input_staff_name"  />入力者
-            <input type="hidden" asp-for="tbl_customer.update_date"/> 更新日
-            <input type="hidden" asp-for="tbl_customer.update_staff_name"  /> 更新者
-            <input type="hidden" asp-for="tbl_customer.delete_flag" />削除フラグ
-
             <div class="form-group">
-                <input type="submit" name="s_button" value="登録" class="btn btn-primary" />
-                <input type="submit" name="s_button" value="キャンセル" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="../CustomerView/Index">Back to List</a>
+    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {

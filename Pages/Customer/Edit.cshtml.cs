@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CustomerManagementSystem.Models;
 
-namespace CustomerManagementSystem.Pages.Customer
+namespace CustomerManagementSystem.Pages.CustomerView
 {
     public class EditModel : PageModel
     {
@@ -19,9 +19,25 @@ namespace CustomerManagementSystem.Pages.Customer
             _context = context;
         }
 
+
         [BindProperty]
         public tbl_customer tbl_customer { get; set; } = default!;
 
+
+        public SelectList? CompanySL { get; set; }
+
+        public void PopulateCompanyDropDownList(MyContext _context,
+            object selectedCompany = null)
+        {
+            var staffQuery = from d in _context.Company
+                             orderby d.company_kana // Sort by staff_name.
+                             select d;
+
+            CompanySL = new SelectList(staffQuery, // items       
+                        "Id",                   // dataValueField
+                        "company_name",           // dataTextField
+                        selectedCompany);         // selectedValue
+        }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null || _context.Customer == null)
@@ -29,34 +45,24 @@ namespace CustomerManagementSystem.Pages.Customer
                 return NotFound();
             }
 
-            var tbl_customerL =  await _context.Customer.FirstOrDefaultAsync(m => m.Id == id);
+            var tbl_customerL = await _context.Customer.FirstOrDefaultAsync(m => m.Id == id);
             if (tbl_customerL == null)
             {
                 return NotFound();
             }
             tbl_customer = tbl_customerL;
+
+            PopulateCompanyDropDownList(_context);
             return Page();
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync(int? id, string s_button)
+        public async Task<IActionResult> OnPostAsync()
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-            if (id == null || _context.Customer == null)
-            {
-                return NotFound();
-            }
-
             if (!ModelState.IsValid)
             {
                 return Page();
-            }
-            if (s_button != null && s_button == "キャンセル") { 
-                return RedirectToPage("./Edit?id=" + id.ToString() );
             }
 
             _context.Attach(tbl_customer).State = EntityState.Modified;
@@ -77,12 +83,12 @@ namespace CustomerManagementSystem.Pages.Customer
                 }
             }
 
-            return RedirectToPage("./../CustomerView/Details?id=" + id.ToString());
+            return RedirectToPage("./Index");
         }
 
         private bool tbl_customerExists(int id)
         {
-          return _context.Customer.Any(e => e.Id == id);
+            return _context.Customer.Any(e => e.Id == id);
         }
     }
 }
