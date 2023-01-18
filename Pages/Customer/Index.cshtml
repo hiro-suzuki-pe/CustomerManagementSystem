@@ -1,94 +1,97 @@
 ﻿@page
-@model CustomerManagementSystem.Pages.Customer.IndexModel
+@model CustomerManagementSystem.Pages.CustomerView.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "顧客一覧";
 }
 
 <h1>顧客一覧</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            顧客名：
+            <input type="text" name="searchCustomer" value="@Model.CurrentCustomer" />
+            会社名：
+            <input type="text" name="searchCompany" value="@Model.CurrentCompany" />
+            <input type="checkbox" name="searchMyCustomer" value="@Model.CurrentCustomer" />
+            自分の顧客のみ
+            <input type="submit" value="フィルター実行" class="btn btn-primary" />
+            <a asp-page="Create">新規作成</a>
+        </p>
+    </div>
+</form>
 <table class="table">
     <thead>
         <tr>
-            <th>顧客名 </th>
-            <th>顧客名カナ </th>
-            <th>会社ID</th>
-            <th>部署</th>
-            <th>役職</th>
-            <th>郵便番号 </th>
-            <th>住所 </th>
-            <th>TEL</th>
-            <th>スタッフID</th>
-            <th>初回訪問日</th>
-            <th>備考</th>
-            <th>入力日</th>
-            <th>入力者</th>
-            <th>更新日</th>
-            <th>更新者</th>
-            <th>削除フラグ</th>
-            <th></th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder=""> 顧客ID</a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="CustomerNameSort"> 顧客名</a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="CustomerNameSort"> 顧客名カナ</a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="CompanyNameSort"> 会社名</a>
+            </th>
+            <th>部署名 </th>
+            <th>役職 </th>
+            <th>営業担当者 </th>
+
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.tbl_customer) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.customer_name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.customer_kana)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.companyId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.section)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.post)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.zipcode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.staffId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.first_action_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.memo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.input_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.input_staff_name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.update_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.update_staff_name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.delete_flag)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.vw_customer)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.customer_name)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.customer_kana)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.company_name)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.section)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.post)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.staff_name)
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@{
+    var prevDisabled = !Model.vw_customer.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.vw_customer.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.vw_customer.PageIndex - 1)"
+   asp-route-currentCustomer="@Model.CurrentCustomer"
+   asp-route-currentCompany="@Model.CurrentCompany"
+   class="btn btn-primary @prevDisabled">
+    前ページ
+</a>
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort" asp-route-pageIndex="@(Model.vw_customer.PageIndex + 1)"
+   asp-route-currentCustomer="@Model.CurrentCustomer"
+   asp-route-currentCompany="@Model.CurrentCompany"
+   class="btn btn-primary @nextDisabled">
+    次ページ
+</a>
