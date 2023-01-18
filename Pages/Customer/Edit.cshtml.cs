@@ -58,8 +58,14 @@ namespace CustomerManagementSystem.Pages.Customer
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string action_button)
         {
+            if (action_button == "キャンセル")
+            {
+                //           return RedirectToPage("./Index");
+                return RedirectToPage("./Details", new { id = tbl_customer.Id });
+            }
+
             if (!ModelState.IsValid)
             {
                 return Page();
@@ -83,7 +89,8 @@ namespace CustomerManagementSystem.Pages.Customer
                 }
             }
 
-            return RedirectToPage("./Index");
+            //           return RedirectToPage("./Index");
+            return RedirectToPage("./Details", new { id = tbl_customer.Id });
         }
 
         private bool tbl_customerExists(int id)
