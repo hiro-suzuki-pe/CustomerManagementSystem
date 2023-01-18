@@ -99,12 +99,12 @@
 
             </div>
 
-            <input type="hidden" asp-for="tbl_customer.Id" />
-            <input type="hidden" asp-for="tbl_customer.input_date" /> 
-            <input type="hidden" asp-for="tbl_customer.input_staff_name"  />
-            <input type="hidden" asp-for="tbl_customer.update_date"/> 
-            <input type="hidden" asp-for="tbl_customer.update_staff_name"  /> 
-            <input type="hidden" asp-for="tbl_customer.delete_flag" />
+            <input type="hidden" asp-for="tbl_customer.Id" /> Id
+            <input type="hidden" asp-for="tbl_customer.input_date" /> 入力日
+            <input type="hidden" asp-for="tbl_customer.input_staff_name"  />入力者
+            <input type="hidden" asp-for="tbl_customer.update_date"/> 更新日
+            <input type="hidden" asp-for="tbl_customer.update_staff_name"  /> 更新者
+            <input type="hidden" asp-for="tbl_customer.delete_flag" />削除フラグ
 
             <div class="form-group">
                 <input type="submit" name="s_button" value="登録" class="btn btn-primary" />
@@ -115,7 +115,7 @@
 </div>
 
 <div>
-    <a asp-page="./Index">一覧に戻る</a>
+    <a asp-page="../CustomerView/Index">Back to List</a>
 </div>
 
 @section Scripts {

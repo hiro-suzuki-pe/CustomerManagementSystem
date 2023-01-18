@@ -21,22 +21,6 @@ namespace CustomerManagementSystem.Pages.Customer
 
         [BindProperty]
         public tbl_customer tbl_customer { get; set; } = default!;
-            [BindProperty]
-    public string SelectValue { get; set; }
-
-        public SelectList? CompanySL { get; set; }
-        public void PopulateCompanyDropDownList(MyContext _context,
-            object selectedCompany = null)
-        {
-            var companyQuery = from d in _context.Company
-                             orderby d.company_kana     // Sort by company_kana.
-                             select d;
-
-            CompanySL = new SelectList(companyQuery, // items       
-                        "Id",                   // dataValueField
-                        "company_name",           // dataTextField
-                        selectedCompany);         // selectedValue
-        }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -51,9 +35,6 @@ namespace CustomerManagementSystem.Pages.Customer
                 return NotFound();
             }
             tbl_customer = tbl_customerL;
-
-            PopulateCompanyDropDownList(_context, tbl_customerL);
-
             return Page();
         }
 
@@ -75,7 +56,7 @@ namespace CustomerManagementSystem.Pages.Customer
                 return Page();
             }
             if (s_button != null && s_button == "キャンセル") { 
-                return RedirectToPage("./Index" );
+                return RedirectToPage("./Edit?id=" + id.ToString() );
             }
 
             _context.Attach(tbl_customer).State = EntityState.Modified;
@@ -96,7 +77,7 @@ namespace CustomerManagementSystem.Pages.Customer
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./../CustomerView/Details?id=" + id.ToString());
         }
 
         private bool tbl_customerExists(int id)
