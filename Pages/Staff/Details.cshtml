@@ -2,10 +2,10 @@
 @model CustomerManagementSystem.Pages.Staff.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "担当者（閲覧）";
 }
 
-<h1>Details</h1>
+<h1>担当者（閲覧）</h1>
 
 <div>
     <h4>tbl_staff</h4>
@@ -89,6 +89,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.tbl_staff?.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit" asp-route-id="@Model.tbl_staff?.Id">編集</a> |
+    <a asp-page="./Index">一覧に戻る</a>
 </div>

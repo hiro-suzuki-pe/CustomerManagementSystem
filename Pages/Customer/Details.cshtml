@@ -1,43 +1,126 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using CustomerManagementSystem.Models;
+﻿@page
+@model CustomerManagementSystem.Pages.CustomerView.DetailsModel
 
-namespace CustomerManagementSystem.Pages.CustomerView
-{
-    public class DetailsModel : PageModel
-    {
-        private readonly CustomerManagementSystem.Models.MyContext _context;
+@{
+    ViewData["Title"] = "顧客情報（閲覧）";
+}
 
-        public DetailsModel(CustomerManagementSystem.Models.MyContext context)
-        {
-            _context = context;
-        }
+<h1>顧客情報（閲覧）</h1>
 
-      public vw_customer vw_customer { get; set; }
+<div>
 
-        public async Task<IActionResult>
-    OnGetAsync(int? id)
-    {
-    if (id == null || _context.CustomerView == null)
-    {
-    return NotFound();
-    }
+    <hr />
 
-    var vw_customerL = await _context.CustomerView.FirstOrDefaultAsync(m => m.Id == id);
-    if (vw_customerL == null)
-    {
-    return NotFound();
-    }
-    else
-    {
-    vw_customer = vw_customerL;
-    }
-    return Page();
-    }
-    }
-    }
+    <table class="details">
+        <tr>
+            <td class="col-sm-2">顧客ID</td>
+            <td class="col-sm-10"> @Html.DisplayFor(model => model.vw_customer.Id)</td>
+            <td class="col-sm-2">営業担当者</td>
+            <td class="col-sm-10"> @Html.DisplayFor(model => model.vw_customer.staff_name)</td>
+        </tr>
+        <tr>
+            <td class="col-sm-2">顧客名カナ</td>
+            <td class="col-sm-10"> @Html.DisplayFor(model => model.vw_customer.customer_kana)</td>
+            <td class="col-sm-2" column="3">初回訪問日</td>
+            <td class="col-sm-10"> @Html.DisplayFor(model => model.vw_customer.first_action_date)</td>
+        </tr>
+        <tr>
+            <td class="col-sm-2">顧客名</td>
+            <td class="col-sm-10" colspan="3"> @Html.DisplayFor(model => model.vw_customer.customer_name)</td>
+        </tr>
+        <tr>
+            <td class="col-sm-2">会社名</td>
+            <td class="col-sm-10" colspan="3"> @Html.DisplayFor(model => model.vw_customer.company_name)</td>
+        </tr>
+        <tr>
+            <td class="col-sm-2">部署</td>
+            <td class="col-sm-10"> @Html.DisplayFor(model => model.vw_customer.section)</td>
+            <td class="col-sm-2">役職</td>
+            <td class="col-sm-10"> @Html.DisplayFor(model => model.vw_customer.post)</td>
+        </tr>
+        <tr>
+            <td class="col-sm-2">郵便番号</td>
+            <td class="col-sm-10" colspan="3"> @Html.DisplayFor(model => model.vw_customer.zipcode)</td>
+        </tr>
+        <tr>
+            <td class="col-sm-2">住所</td>
+            <td class="col-sm-10" colspan="3"> @Html.DisplayFor(model => model.vw_customer.address)</td>
+        </tr>
+        <tr>
+            <td class="col-sm-2">TEL</td>
+            <td class="col-sm-10" colspan="3"> @Html.DisplayFor(model => model.vw_customer.tel)</td>
+        </tr>
+        <tr>
+            <td class="col-sm-2">備考</td>
+            <td colspan="3"> @Html.DisplayFor(model => model.vw_customer.memo)</td>
+        </tr>
+    </table>
+    <!--
+    <dl class="row">
+        <dt class="col-sm-2">顧客ID </dt>
+        <dd class="col-sm-10">
+    @Html.DisplayFor(model => model.vw_customer.Id)
+        </dd>
+        <dt class="col-sm-2">顧客名 </dt>
+        <dd class="col-sm-10">
+    @Html.DisplayFor(model => model.vw_customer.customer_name)
+        </dd>
+        <dt class="col-sm-2">顧客名カナ </dt>
+        <dd class="col-sm-10">
+    @Html.DisplayFor(model => model.vw_customer.customer_kana)
+        </dd>
+        <dt class="col-sm-2">部署</dt>
+        <dd class="col-sm-10">
+    @Html.DisplayFor(model => model.vw_customer.section)
+        </dd>
+        <dt class="col-sm-2">役職 </dt>
+        <dd class="col-sm-10">
+    @Html.DisplayFor(model => model.vw_customer.post)
+        </dd>
+        <dt class="col-sm-2">初回訪問日 </dt>
+        <dd class="col-sm-10">
+    @Html.DisplayFor(model => model.vw_customer.first_action_date)
+        </dd>
+        <dt class="col-sm-2">郵便番号  </dt>
+        <dd class="col-sm-10">
+    @Html.DisplayFor(model => model.vw_customer.zipcode)
+        </dd>
+        <dt class="col-sm-2">住所  </dt>
+        <dd class="col-sm-10">
+    @Html.DisplayFor(model => model.vw_customer.address)
+        </dd>
+        <dt class="col-sm-2">TEL </dt>
+        <dd class="col-sm-10">
+    @Html.DisplayFor(model => model.vw_customer.tel)
+        </dd>
+        <dt class="col-sm-2">備考 </dt>
+        <dd class="col-sm-10">
+    @Html.DisplayFor(model => model.vw_customer.memo)
+        </dd>
+        <dt class="col-sm-2">更新日 </dt>
+        <dd class="col-sm-10">
+    @Html.DisplayFor(model => model.vw_customer.update_date)
+        </dd>
+        <dt class="col-sm-2">更新者 </dt>
+        <dd class="col-sm-10">
+    @Html.DisplayFor(model => model.vw_customer.update_staff_name)
+        </dd>
+        <dt class="col-sm-2">会社名 </dt>
+        <dd class="col-sm-10">
+    @Html.DisplayFor(model => model.vw_customer.company_name)
+        </dd>
+        <dt class="col-sm-2">会社名カナ </dt>
+        <dd class="col-sm-10">
+    @Html.DisplayFor(model => model.vw_customer.company_kana)
+        </dd>
+        <dt class="col-sm-2">営業担当者 </dt>
+        <dd class="col-sm-10">
+    @Html.DisplayFor(model => model.vw_customer.staff_name)
+        </dd>
+    </dl>
+    -->
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.vw_customer?.Id">編集</a> |
+    <a asp-page="./Index">一覧に戻る</a>
+</div>

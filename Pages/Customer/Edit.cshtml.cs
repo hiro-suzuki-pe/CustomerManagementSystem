@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CustomerManagementSystem.Models;
 
-namespace CustomerManagementSystem.Pages.CustomerView
+namespace CustomerManagementSystem.Pages.Customer
 {
     public class EditModel : PageModel
     {

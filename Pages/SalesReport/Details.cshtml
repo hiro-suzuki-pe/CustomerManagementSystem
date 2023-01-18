@@ -2,10 +2,10 @@
 @model CustomerManagementSystem.Pages.SalesReport.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "営業報告（閲覧）";
 }
 
-<h1>Details</h1>
+<h1>営業報告（閲覧）</h1>
 
 <div>
     <h4>vw_salesReport</h4>
@@ -44,6 +44,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.vw_salesReport?.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit" asp-route-id="@Model.vw_salesReport?.Id">編集</a> |
+    <a asp-page="./Index">一覧に戻る</a>
 </div>

@@ -13,21 +13,11 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.tbl_staff[0].staff_name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.tbl_staff[0].userId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.tbl_staff[0].password)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.tbl_staff[0].admin_flag)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.tbl_staff[0].delete_flag)
-            </th>
+            <th>担当者名</th>
+            <th>ユーザID</th>
+            <th>パスワード</th>
+            <th>管理者フラグ</th>
+            <th>削除フラグ</th>
             <th></th>
         </tr>
     </thead>
@@ -50,9 +40,9 @@
                 @Html.DisplayFor(modelItem => item.delete_flag)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.Id">編集</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">詳細</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">削除</a>
             </td>
         </tr>
 }
