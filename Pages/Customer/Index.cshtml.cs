@@ -74,6 +74,7 @@ namespace CustomerManagementSystem.Pages.Customer
                 CustomerViewIQ =
                     CustomerViewIQ.Where(s => s.company_name.Contains(searchCompany));
             }
+            CustomerViewIQ = CustomerViewIQ.Where(s => s.delete_flag == false);
 
             switch (sortOrder)
             {

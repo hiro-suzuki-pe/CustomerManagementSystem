@@ -20,9 +20,9 @@ namespace CustomerManagementSystem.Pages.SalesReport
             Configuration = configuration;
         }
 
-        public PaginatedList<vw_salesReport> vw_salesReport { get;set; } = default!;
+        public PaginatedList<vw_salesReport> vw_salesReport { get;set; }
 
-        public async Task OnGetAsync(string fromDate, string toDate, int? pageNumber)
+        public async Task OnGetAsync(string fromDate, string toDate, int? pageIndex)
         {
             IQueryable<vw_salesReport> salesReportIQ = from s in _context.SalesReport select s;
 
@@ -34,23 +34,23 @@ namespace CustomerManagementSystem.Pages.SalesReport
             {
                 salesReportIQ =
                     salesReportIQ.Where(s => s.action_date >= dt1 && s.action_date <= dt2);
-                pageNumber = 1;
+                pageIndex = 1;
             }
             else if (DateTime.TryParse(fromDate, out dt1))
             {
                 salesReportIQ = salesReportIQ.Where(s => s.action_date >= dt1);
-                pageNumber = 1;
+                pageIndex = 1;
             }
             else if (DateTime.TryParse(toDate, out dt2))
             {
                 salesReportIQ = salesReportIQ.Where(s => s.action_date <= dt2);
-                pageNumber = 1;
+                pageIndex = 1;
             }
             salesReportIQ = salesReportIQ.OrderBy(s => s.action_date);
 
             var pageSize = Configuration.GetValue("PageSize", 4);
             vw_salesReport = await PaginatedList<vw_salesReport>.CreateAsync(
-                salesReportIQ.AsNoTracking(), pageNumber ?? 1, pageSize);
+                salesReportIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
 
 
         }

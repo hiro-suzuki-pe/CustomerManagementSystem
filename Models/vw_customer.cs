@@ -19,6 +19,7 @@ namespace CustomerManagementSystem.Models
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
         public DateTime	update_date { get; set; }
         public string update_staff_name { get; set; } = String.Empty;
+        public bool delete_flag { get; set; } = false;
         public string company_name { get; set; } = String.Empty;
         public string company_kana { get; set; } = String.Empty;
         public string staff_name { get; set; } = String.Empty;
