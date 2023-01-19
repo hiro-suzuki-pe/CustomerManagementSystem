@@ -25,7 +25,6 @@ namespace CustomerManagementSystem.Pages.Customer
 
 
         public SelectList? CompanySL { get; set; }
-
         public void PopulateCompanyDropDownList(MyContext _context,
             object selectedCompany = null)
         {
@@ -37,6 +36,19 @@ namespace CustomerManagementSystem.Pages.Customer
                         "Id",                   // dataValueField
                         "company_name",           // dataTextField
                         selectedCompany);         // selectedValue
+        }
+        public SelectList? StaffSL { get; set; }
+        public void PopulateStaffDropDownList(MyContext _context,
+            object selectedStaff = null)
+        {
+            var staffQuery = from d in _context.Staff
+                             orderby d.staff_name // Sort by staff_name.
+                             select d;
+
+            StaffSL = new SelectList(staffQuery, // items       
+                        "Id",                   // dataValueField
+                        "staff_name",           // dataTextField
+                        selectedStaff);         // selectedValue
         }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -53,6 +65,7 @@ namespace CustomerManagementSystem.Pages.Customer
             tbl_customer = tbl_customerL;
 
             PopulateCompanyDropDownList(_context);
+            PopulateStaffDropDownList(_context);
             return Page();
         }
 

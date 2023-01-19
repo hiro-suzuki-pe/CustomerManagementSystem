@@ -19,7 +19,7 @@
                         </td>
                         <td class="col-sm-2">営業担当者</td>
                         <td class="col-sm-10">                
-                            <input asp-for="tbl_customer.staffId" class="form-control" />
+                            <select asp-for="tbl_customer.staffId" asp-items="@Model.StaffSL"></select>
                             <span asp-validation-for="tbl_customer.staffId" class="text-danger"></span>
                         </td>
                     </tr>
