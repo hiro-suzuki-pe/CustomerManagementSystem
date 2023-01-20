@@ -82,7 +82,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.action_date)
+                    <a asp-page="../Action/Edit" asp-route-id="@item.Id"> @Html.DisplayFor(modelItem => item.action_date)</a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.action_content)

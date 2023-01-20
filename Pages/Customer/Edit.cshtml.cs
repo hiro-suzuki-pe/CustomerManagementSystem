@@ -102,7 +102,6 @@ namespace CustomerManagementSystem.Pages.Customer
                 }
             }
 
-            //           return RedirectToPage("./Index");
             return RedirectToPage("./Details", new { id = tbl_customer.Id });
         }
 
