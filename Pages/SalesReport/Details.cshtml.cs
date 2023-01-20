@@ -18,7 +18,7 @@ namespace CustomerManagementSystem.Pages.SalesReport
             _context = context;
         }
 
-      public vw_salesReport vw_salesReport { get; set; }
+        public vw_salesReport vw_salesReport { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {

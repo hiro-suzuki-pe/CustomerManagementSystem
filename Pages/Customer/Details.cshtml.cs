@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CustomerManagementSystem.Models;
+using CustomerManagementSystem.Pages.SalesReport;
 
 namespace CustomerManagementSystem.Pages.Customer
 {
@@ -18,7 +19,8 @@ namespace CustomerManagementSystem.Pages.Customer
             _context = context;
         }
 
-        public tbl_customer tbl_customer { get; set; }
+        public vw_customer vw_customer { get; set; }
+        public IList<vw_salesReport> vw_salesReport { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -27,15 +29,19 @@ namespace CustomerManagementSystem.Pages.Customer
                 return NotFound();
             }
 
-            var tbl_customerL = await _context.Customer.FirstOrDefaultAsync(m => m.Id == id);
-            if (tbl_customerL == null)
+            var vw_customerL = await _context.CustomerView.FirstOrDefaultAsync(m => m.Id == id);
+            if (vw_customerL == null)
             {
                 return NotFound();
             }
             else 
             {
-                tbl_customer = tbl_customerL;
+                vw_customer = vw_customerL;
             }
+
+            vw_salesReport = await _context.SalesReport.ToListAsync();
+
+
             return Page();
         }
     }
