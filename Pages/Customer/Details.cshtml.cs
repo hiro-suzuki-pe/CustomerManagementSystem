@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CustomerManagementSystem.Models;
 using CustomerManagementSystem.Pages.SalesReport;
+using CustomerManagementSystem.Pages;
+using Microsoft.Data.SqlClient;
+using System.Configuration;
 
 namespace CustomerManagementSystem.Pages.Customer
 {
@@ -39,8 +42,11 @@ namespace CustomerManagementSystem.Pages.Customer
                 vw_customer = vw_customerL;
             }
 
-            vw_salesReport = await _context.SalesReport.ToListAsync();
-
+            // vw_salesReport = await _context.SalesReport.ToListAsync();
+            IQueryable<vw_salesReport> SalesReportIQ =  from s in _context.SalesReport select s;
+            SalesReportIQ = SalesReportIQ.Where(s => s.customer_name == vw_customer.customer_name);
+            
+            vw_salesReport = await SalesReportIQ.AsNoTracking().ToListAsync();
 
             return Page();
         }
