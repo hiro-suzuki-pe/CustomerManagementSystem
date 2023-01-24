@@ -13,15 +13,10 @@ namespace CustomerManagementSystem.Pages.Action
     public class CreateModel : PageModel
     {
         private readonly CustomerManagementSystem.Models.MyContext _context;
-
+        //  public int cid { get; set; }
         public CreateModel(CustomerManagementSystem.Models.MyContext context)
         {
             _context = context;
-        }
-
-        public IActionResult OnGet()
-        {
-            return Page();
         }
 
         [BindProperty]
@@ -31,6 +26,8 @@ namespace CustomerManagementSystem.Pages.Action
         public tbl_staff tbl_staff { get; set; } = default!;
 
         public SelectList? StaffSL { get; set; }
+
+        public int CustomerId { get; set; }
         public void PopulateStaffDropDownList(MyContext _context,
             object selectedStaff = null)
         {
@@ -44,9 +41,10 @@ namespace CustomerManagementSystem.Pages.Action
                         selectedStaff);         // selectedValue
         }
 
-        public async Task<IActionResult> OnGetAsync(int? id)        // id:  customer ID (NOT action ID)
+        public async Task<IActionResult> OnGetAsync(string? cid)        // id:  customer ID (NOT action ID)
         {
-            tbl_customer = await _context.Customer.FirstOrDefaultAsync(m => m.Id == id);
+            CustomerId = int.Parse(cid);
+            tbl_customer = await _context.Customer.FirstOrDefaultAsync(m => m.Id == int.Parse(cid));
             if (tbl_customer == null)
             {
                 return NotFound();
@@ -58,29 +56,24 @@ namespace CustomerManagementSystem.Pages.Action
                 return NotFound();
             }
 
-            tbl_staff = await _context.Staff.FirstOrDefaultAsync(m => m.Id == tbl_action.action_staffId);
-            if (tbl_staff == null)
-            {
-                return NotFound();
-            }
-
             PopulateStaffDropDownList(_context);
             return Page();
         }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync(string action_button, int id)
+        public async Task<IActionResult> OnPostAsync(string action_button)
         {
-            tbl_customer = await _context.Customer.FirstOrDefaultAsync(m => m.Id == tbl_action.customerId);
-            if (tbl_customer == null)
-            {
-                return NotFound();
-            }
+            //tbl_customer = await _context.Customer.FirstOrDefaultAsync(m => m.Id == tbl_action.customerId);
+            //if (tbl_customer == null)
+            //{
+            //return NotFound();
+            //}
+
 
             if (action_button == "キャンセル")
             {
                 //           return RedirectToPage("./Index");
-                return RedirectToPage("../Customer/Details", new { id = tbl_customer.Id });
+                return RedirectToPage("../Customer/Details", new { id = tbl_action.customerId });
             }
 
             if (!ModelState.IsValid)
@@ -95,17 +88,17 @@ namespace CustomerManagementSystem.Pages.Action
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!tbl_actionExists(tbl_action.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                //               if (!tbl_actionExists(tbl_action.Id))
+                //               {
+                //return NotFound();
+                //}
+                //else
+                //{
+                throw;
+                //}
             }
 
-            return RedirectToPage("../Customer/Details", new { id = tbl_customer.Id });
+            return RedirectToPage("../Customer/Details", new { id = tbl_action.customerId });
         }
         private bool tbl_actionExists(int id)
         {

@@ -19,13 +19,15 @@
                 <tr>
                     <td>顧客名</td>
                     <td>
-                        <input type="hidden" asp-for="tbl_action.customerId" />
+                        <input type="hidden" asp-for="tbl_action.customerId" value="@Model.CustomerId" class="form-control" />
                         @Html.DisplayFor(model => model.tbl_customer.customer_name)
                     </td>
                 </tr>
                 <tr>
                     <td>会社名</td>
-                    <td>@Html.DisplayFor(model => model.tbl_company.company_name)</td>
+                    <td>
+                        @Html.DisplayFor(model => model.tbl_company.company_name)
+                    </td>
                 </tr>
                 <tr>
                     <td>日付</td>
@@ -43,7 +45,6 @@
                 </tr>
                 <tr>
                     <td>対応者</td>
-
                     <td>
                         <select asp-for="tbl_action.action_staffId" asp-items="@Model.StaffSL"></select>
                         <span asp-validation-for="tbl_action.action_staffId" class="text-danger"></span>
@@ -64,4 +65,4 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-    }
+}
