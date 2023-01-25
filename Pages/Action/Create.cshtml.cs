@@ -63,13 +63,6 @@ namespace CustomerManagementSystem.Pages.Action
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync(string action_button)
         {
-            //tbl_customer = await _context.Customer.FirstOrDefaultAsync(m => m.Id == tbl_action.customerId);
-            //if (tbl_customer == null)
-            //{
-            //return NotFound();
-            //}
-
-
             if (action_button == "キャンセル")
             {
                 //           return RedirectToPage("./Index");
@@ -88,14 +81,7 @@ namespace CustomerManagementSystem.Pages.Action
             }
             catch (DbUpdateConcurrencyException)
             {
-                //               if (!tbl_actionExists(tbl_action.Id))
-                //               {
-                //return NotFound();
-                //}
-                //else
-                //{
                 throw;
-                //}
             }
 
             return RedirectToPage("../Customer/Details", new { id = tbl_action.customerId });
