@@ -1,0 +1,40 @@
+﻿@page
+@model CustomerManagementSystem.Pages.LoginModel
+@{
+    ViewData["Title"] = "ログイン";
+}
+
+<h1>ログイン</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="tbl_staff.userId" class="control-label"></label>
+                @*
+                    <input asp-for="@Model.StaffUserId" class="form-control" />
+                *@
+                <input type="text" name="StaffUserId" />
+                <span asp-validation-for="tbl_staff.userId" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="tbl_staff.password" class="control-label"></label>
+                @*
+                    <input asp-for="@Model.StaffPassword" class="form-control" />
+                *@
+                <input type="type" name="StaffPassword" />
+                <span asp-validation-for="tbl_staff.password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
