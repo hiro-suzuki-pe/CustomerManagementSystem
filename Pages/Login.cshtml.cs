@@ -13,8 +13,8 @@ namespace CustomerManagementSystem.Pages
 
     public class LoginModel : PageModel
     {
-
         private readonly CustomerManagementSystem.Models.MyContext _context;
+        private ILogger _logger;
 
         public LoginModel(CustomerManagementSystem.Models.MyContext context)
         {
@@ -48,8 +48,12 @@ namespace CustomerManagementSystem.Pages
        */
 //        public async Task<IActionResult> OnPostAsync(string StaffUserId, string StaffPassword,
 //            string ReturnUrl = null)
-       public async Task<IActionResult> OnPostAsync(string StaffUserId, string StaffPassword)
+       public async Task<IActionResult> OnPostAsync(string StaffUserId, string StaffPassword,
+           string? returnUrl = null)
         {
+
+            returnUrl = returnUrl;
+
             if (!ModelState.IsValid)
             {
                 return Page();
@@ -65,16 +69,22 @@ namespace CustomerManagementSystem.Pages
 
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, StaffUserId),
-                new Claim("Password", StaffPassword),
-                new Claim(ClaimTypes.Role, "Administrator")
+                new Claim("UserId", StaffUserId),
+                new Claim("Password", StaffPassword)    //,
+                //                new Claim("Admin_flag", "false")
             };
 
-            var ClaimsIdentity = new ClaimsIdentity(
+            var claimsIdentity = new ClaimsIdentity(
                 claims,  CookieAuthenticationDefaults.AuthenticationScheme);
 
             var authProperties = new AuthenticationProperties
             {
+                AllowRefresh = true,
+                ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(10),
+                IsPersistent = true,
+                IssuedUtc = DateTime.Now,       // <DateTimeOffset>,
+                RedirectUri = "string",
+
                 //AllowRefresh = <bool>,
                 // Refreshing the authentication session should be allowed.
 
@@ -96,18 +106,20 @@ namespace CustomerManagementSystem.Pages
                 // The full path or absolute URI to be used as an http 
                 // redirect response value.
             };
+
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity), authProperties);
+            // var tbl_staffL = await _context.Staff.FirstOrDefaultAsync(m => m.userId == StaffUserId);
+
+            // _logger.LogInformation("User {UserId} logged in at {Time}.",
+            //    StaffUserId, DateTime.UtcNow);
+            //
+            // return RedirectToPage("./Index");
+            //            return LocalRedirect(Url.GetLocalUrl(returnUrl));
+
+
             /*
-            {
-                AllowRefresh = true,
-                ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(10),
-                IsPersistent = true,
-                IssuedUtc = DateTime.Now,       // <DateTimeOffset>,
-                RedirectUri = "string",
-            };
-            */
-
-            var tbl_staffL = await _context.Staff.FirstOrDefaultAsync(m => m.userId == StaffUserId);
-
             if (tbl_staffL == null)
             {
                 return Page();
@@ -116,6 +128,7 @@ namespace CustomerManagementSystem.Pages
             {
                 return Page();
             };
+            */
 
             return RedirectToPage("./Index");
         }
